@@ -30,10 +30,10 @@ def welcome_message():
     print(f"This Survey was created to understand interests")
     print(f"of film and book enthusiasts in 2024 the survey will")
     print(f"gain information and understanding from survey answers.\n")
-    time.sleep(4)
+    time.sleep(6)
     print(f"You will be asked a few questions either about film or books")
     print(f"depending on your preference so sit tight and complete the survey!\n")
-    time.sleep(4)
+    time.sleep(6)
     clear()
 
 """
@@ -47,4 +47,20 @@ def clear():
     else:  # This is for Linux and macOS
         os.system('clear')
 
+
+
+def starting_page():
+        print(colorama.Fore.MAGENTA + f"To begin this survey we need to know if you" )
+        print(f"are a moviegoer or a bookreader!")
+        time.sleep(3)
+    
 welcome_message()
+starting_page()
+    
+    
+    
+    
+    
+    
+   
+   
