@@ -47,15 +47,44 @@ def clear():
     else:  # This is for Linux and macOS
         os.system('clear')
 
+"""
+The function get_user_name is called before starting_page function
+to ensure that this is shown in the terminal ahead of it.
+"""
+def get_user_name():
+    while True:
+        user_name = input(colorama.Fore.YELLOW + "Please enter your name:")
+        print()
+        if re.match("^[a-zA-Z]+$", user_name):
+            # Append user name to the "names" worksheet
+            user_name_worksheet = SHEET.worksheet("names")
+            user_name_worksheet.append_row([user_name])
+            break
+        else:
+            print(colorama.Fore.RED + f"Invalid name.")
+            print(colorama.Fore.RED + f"Please enter a valid name with only letters.")
+    print(colorama.Fore.GREEN + f"Hello, {user_name}! Preparing the Code Survey.\n")
 
 
 def starting_page():
-        print(colorama.Fore.MAGENTA + f"To begin this survey we need to know if you" )
-        print(f"are a moviegoer or a bookreader!")
-        time.sleep(3)
-    
+    print(colorama.Fore.MAGENTA + f"To begin this survey we need to know if you" )
+    print(f"are a moviegoer or a bookreader so we can tailor your experience!\n")
+    time.sleep(3)
+    print(colorama.Fore.MAGENTA + f"1. Moviegoer") 
+    print(colorama.Fore.MAGENTA + f"2. Bookreader")
+    user_choice = input(colorama.Fore.YELLOW + f"Enter your choice from option 1, or option 2")
+
+    if user_choice == '1':
+        film_survey() # This is placeholder for a function for the film survey.
+
+
+
+
+
 welcome_message()
+get_user_name()
 starting_page()
+
     
     
     
