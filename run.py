@@ -57,10 +57,18 @@ def get_user_name_age():
         print()
         if re.match("^[a-zA-Z]+$", user_name):
             print(colorama.Fore.GREEN + "Thank you.")
+            time.sleep(2)
+            clear()
             while True:
+                print(colorama.Fore.GREEN + f"You must enter an age between 7-110 so that the survey")
+                print(colorama.Fore.GREEN + f"is reasonably conducted by people of human age.")
                 user_age = input(colorama.Fore.YELLOW + "Please enter your age: ")
                 print()
-                if user_age.isdigit() and int(user_age) > 0:
+                if user_age.isdigit() and 7 <= int(user_age) <= 110:
+                    """
+                    range between 7-110 is to ensure that people dont 
+                    place extraordinary numbers in the age input
+                    """
                     print(colorama.Fore.GREEN + "Thank you.")
                     # Append user name and age to the "names" worksheet
                     user_name_worksheet = SHEET.worksheet("names")
@@ -68,7 +76,7 @@ def get_user_name_age():
                     break
                 else:
                     print(colorama.Fore.RED + "Invalid age.")
-                    print(colorama.Fore.RED + "You must enter a valid age (positive numbers only).")
+                    print(colorama.Fore.RED + "You must enter a valid age (between 7-110).")
             break
         else:
             print(colorama.Fore.RED + "Invalid name.")
@@ -76,6 +84,12 @@ def get_user_name_age():
     print(colorama.Fore.GREEN + f"Hello, {user_name}! Preparing the Code Survey.\n")
     time.sleep(4)
     clear()
+    return user_name
+
+    """
+    'return user_name' allows the use of the user_name variable in other 
+    functions in the code.
+    """
 
 
 def starting_page():
@@ -96,13 +110,26 @@ def starting_page():
 def film_survey():
     print(colorama.Fore.GREEN + f"The film survey will now begin!")
     time.sleep(3)
+    clear()
+
+    print(colorama.Fore.GREEN + f"Once again, welcome {user_name} we are thrilled that you have")
+    print(colorama.Fore.GREEN + f"taken the time to take this small survey!\n")
+    time.sleep(4)
+    print(colorama.Fore.GREEN + f"As you have selected option 1 'Moviegoer' we have taken this into account \n")
+    print(colorama.Fore.GREEN + f"and have built a tailormade survey just for you to dive into.")
+    print(colorama.Fore.GREEN + f"It's now time to sit back get a drink or some popcorn and answer a few questions!")
+    time.sleep(6)
+    clear()
+    
+    
+
 
 
 
 
 
 welcome_message()
-get_user_name_age()
+user_name = get_user_name_age()
 starting_page()
 
     
