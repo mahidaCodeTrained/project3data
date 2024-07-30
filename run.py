@@ -56,18 +56,26 @@ def get_user_name_age():
         user_name = input(colorama.Fore.YELLOW + "Please enter your name: ")
         print()
         if re.match("^[a-zA-Z]+$", user_name):
+            print(colorama.Fore.GREEN + "Thank you.")
             while True:
-               user_age = input(colorama.Fore.YELLOW+ "Please enter your age: ")
-            print()
-            if user_age.isdigit() and int(user_age) > 0:
-            # Append user name to the "names" worksheet
-              user_name_worksheet = SHEET.worksheet("names")
-              user_name_worksheet.append_row([user_name, user_age])
+                user_age = input(colorama.Fore.YELLOW + "Please enter your age: ")
+                print()
+                if user_age.isdigit() and int(user_age) > 0:
+                    print(colorama.Fore.GREEN + "Thank you.")
+                    # Append user name and age to the "names" worksheet
+                    user_name_worksheet = SHEET.worksheet("names")
+                    user_name_worksheet.append_row([user_name, user_age])
+                    break
+                else:
+                    print(colorama.Fore.RED + "Invalid age.")
+                    print(colorama.Fore.RED + "You must enter a valid age (positive numbers only).")
             break
         else:
-            print(colorama.Fore.RED + f"Invalid name.")
-            print(colorama.Fore.RED + f"Please enter a valid name with only letters.")
+            print(colorama.Fore.RED + "Invalid name.")
+            print(colorama.Fore.RED + "Please enter a valid name with only letters.")
     print(colorama.Fore.GREEN + f"Hello, {user_name}! Preparing the Code Survey.\n")
+    time.sleep(4)
+    clear()
 
 
 def starting_page():
