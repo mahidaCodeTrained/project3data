@@ -118,27 +118,34 @@ def film_survey():
     print(colorama.Fore.GREEN + f"As you have selected option 1 'Moviegoer' we have taken this into account")
     print(colorama.Fore.GREEN + f"and have built a tailormade survey just for you to dive into.")
     print(colorama.Fore.GREEN + f"It's now time to sit back get a drink or some popcorn and answer a few questions!")
-    time.sleep(6)
+    time.sleep(7)
     clear()
 
-    film_responses = []
-    print(colorama.Fore.YELLOW + f"Question One: From these options what best describes your level")
-    print(colorama.Fore.YELLOW + f"of enthusiasm for films in 2024?\n")
-    print(colorama.Fore.YELLOW + f"1. Super Enthusiasm")
-    print(colorama.Fore.YELLOW + f"2. Moderate Enthusiasm")
-    print(colorama.Fore.YELLOW + f"3. Mild Enthusiasm")
-    print(colorama.Fore.YELLOW + f"4. Little Enthusiasm\n")
+    film_data = [user_name]
+    while True:
+        print(colorama.Fore.YELLOW + f"Question One: From these options what best describes your level")
+        print(colorama.Fore.YELLOW + f"of enthusiasm for films in 2024?\n")
+        print(colorama.Fore.YELLOW + f"1. Super Enthusiasm")
+        print(colorama.Fore.YELLOW + f"2. Moderate Enthusiasm")
+        print(colorama.Fore.YELLOW + f"3. Mild Enthusiasm")
+        print(colorama.Fore.YELLOW + f"4. Little Enthusiasm\n")
 
-    film_responses = input("Please enter your answer(from '1' '2' '3' '4'): ")
+        film_answer = input("Please enter your answer(from '1' '2' '3' '4'): ")
+
+        if film_answer in ['1', '2', '3', '4']:
+            film_data.append(film_answer)
+            print("We have collected this data, thank you!")
+            break
+        else:
+            print(colorama.Fore.RED + f"You have entered an invalid answer...")
+            print(colorama.Fore.RED + f"Please make sure your answer corresponds to the option numbers.")
+            time.sleep(2)
+            clear()
+film_survey_worksheet = SHEET.worksheet("film")
+film_survey_worksheet.append_row(film_answer)
+        
     
-
     
-    
-
-
-
-
-
 
 welcome_message()
 user_name = get_user_name_age()
