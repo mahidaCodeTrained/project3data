@@ -107,6 +107,10 @@ def film_survey():
     clear()
 
     film_data = []
+
+    """
+    Question 1
+    """
     while True:
         print(colorama.Fore.YELLOW + "Question One: From these options what best describes your level")
         print(colorama.Fore.YELLOW + "of enthusiasm for films in 2024?\n")
@@ -118,18 +122,20 @@ def film_survey():
         film_answer = input("Please enter your answer(from '1' '2' '3' '4'): ")
 
         if film_answer in ['1', '2', '3', '4']:
+            film_data.append(film_answer)
             print("We have collected this data, thank you and on to the next question!")
             time.sleep(2)
             clear()
-            film_data.append(film_answer)
             break
         else:
             print(colorama.Fore.RED + "You have entered an invalid answer...")
             print(colorama.Fore.RED + "Please make sure your answer corresponds to the option numbers.")
-            
             time.sleep(2)
             clear()
 
+    """
+    Question 2
+    """ 
     while True:
         print(colorama.Fore.YELLOW + "Question Two: On a scale of 1-10 how would you rate")
         print(colorama.Fore.YELLOW + "the cinema going experience in 2024 based on its enjoyableness? ")
@@ -139,7 +145,35 @@ def film_survey():
             rating = int(input("Please enter a rating between 1-10: "))
             if 1 <= rating <= 10:
                 film_data.append(str(rating))  # Convert to string for consistency
+                print("We have collected this data, thank you and on to the next question!")
+                time.sleep(2)
+                clear()
+                break
+            else:
+                print(colorama.Fore.RED + "Invalid rating.")
+                print(colorama.Fore.RED + "Please enter a number between 1 and 10.")
+                time.sleep(2)
+                clear()
+        except ValueError:
+            print(colorama.Fore.RED + "Invalid input.")
+            print(colorama.Fore.RED + "Please enter a number between 1 and 10.")
+            time.sleep(2)
+            clear()
+
+    """
+    Question 3
+    """ 
+    while True:
+        print(colorama.Fore.YELLOW + f"Question Three: {user_name}, on a scale of 1-10 how often")
+        print(colorama.Fore.YELLOW + "do you sit down and watch movies?")
+        print(colorama.Fore.GREEN + "(1) meaning almost never, while (10) means all the time.")
+        try:
+            often_rating = int(input("Please enter a rating between 1-10: "))
+            if 1 <= often_rating <= 10:
+                film_data.append(str(often_rating))
                 print("We have collected this data, thank you!")
+                time.sleep(2)
+                clear()
                 break
             else:
                 print(colorama.Fore.RED + "Invalid rating.")
