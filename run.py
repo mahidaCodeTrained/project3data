@@ -115,11 +115,23 @@ def film_survey():
     print(colorama.Fore.GREEN + f"Once again, welcome {user_name} we are thrilled that you have")
     print(colorama.Fore.GREEN + f"taken the time to take this small survey!\n")
     time.sleep(4)
-    print(colorama.Fore.GREEN + f"As you have selected option 1 'Moviegoer' we have taken this into account \n")
+    print(colorama.Fore.GREEN + f"As you have selected option 1 'Moviegoer' we have taken this into account")
     print(colorama.Fore.GREEN + f"and have built a tailormade survey just for you to dive into.")
     print(colorama.Fore.GREEN + f"It's now time to sit back get a drink or some popcorn and answer a few questions!")
     time.sleep(6)
     clear()
+
+    film_responses = []
+    print(colorama.Fore.YELLOW + f"Question One: From these options what best describes your level")
+    print(colorama.Fore.YELLOW + f"of enthusiasm for films in 2024?\n")
+    print(colorama.Fore.YELLOW + f"1. Super Enthusiasm")
+    print(colorama.Fore.YELLOW + f"2. Moderate Enthusiasm")
+    print(colorama.Fore.YELLOW + f"3. Mild Enthusiasm")
+    print(colorama.Fore.YELLOW + f"4. Little Enthusiasm\n")
+
+    film_responses = input("Please enter your answer(from '1' '2' '3' '4'): ")
+    
+
     
     
 
