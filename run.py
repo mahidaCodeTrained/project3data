@@ -187,7 +187,7 @@ def film_survey():
         if bonus_snack in ['1', '2']:
             bonus_data.append(bonus_snack)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(4)
+            time.sleep(2)
             clear()
             break
         else:
@@ -230,13 +230,13 @@ def film_survey():
         if cinema in ['1', '2']:
             film_data.append(cinema)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(3)
+            time.sleep(2)
             clear()
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid.")
             print(colorama.Fore.RED + "Please enter the number either ('1') or ('2') depending on your choice..")
-            time.sleep(3)
+            time.sleep(2)
             clear()
 
     # Bonus Question 2
@@ -255,7 +255,7 @@ def film_survey():
         if day_cinema in ['1', '2', '3', '4', '5', '6', '7']:
             bonus_data.append(day_cinema)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(4)
+            time.sleep(2)
             clear()
             break
         else:
@@ -280,13 +280,13 @@ def film_survey():
         if genre in ['1', '2', '3', '4', '5', '6', '7']:
             film_data.append(genre)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(4)
+            time.sleep(2)
             clear()
             break
         else:
             print(colorama.Fore.RED + "Sorry but this entry is invalid.")
             print(colorama.Fore.RED + "You must select a number from 1-7")
-            time.sleep(3)
+            time.sleep(2)
             clear()
 
     # Bonus Question 3
@@ -310,7 +310,7 @@ def film_survey():
     bonus_data.append(favorite)
 
     print(colorama.Fore.CYAN + f"Thank you for answering {user_name}, on to the final question!")
-    time.sleep(4)
+    time.sleep(2)
     clear()
   
     
@@ -326,13 +326,13 @@ def film_survey():
         if watch_movie in ['1', '2', '3', '4']:
             film_data.append(watch_movie)
             print(f"Thank you for answering {user_name}.")
-            time.sleep(4)
+            time.sleep(2)
             clear()
             break 
         else:
             print(colorama.Fore.RED +"Sorry but this answer is invalid.")
             print(colorama.Fore.RED + "Please enter a value between [1-4]")
-            time.sleep(3)
+            time.sleep(2)
             clear()
 
     # Append data to Google Sheets
@@ -449,13 +449,13 @@ def book_survey():
         if convention in ['1', '2']:
             bonus_book_data.append(convention)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(3)
+            time.sleep(2)
             clear()
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid.")
             print("You must answer with the numbers (1) or (2).")
-            time.sleep(3)
+            time.sleep(2)
             clear()
 
     # Question 2
@@ -470,13 +470,13 @@ def book_survey():
         if book_type in ['1', '2', '3']:
             book_data.append(book_type)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(3)
+            time.sleep(2)
             clear()
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
             print(colorama.Fore.RED + "Your answer must be between the numbers (1-3)")
-            time.sleep(4)
+            time.sleep(2)
             clear()
 
     # Question 3
@@ -493,13 +493,13 @@ def book_survey():
         if cover_art in ['1', '2', '3', '4']:
             book_data.append(cover_art)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(3)
+            time.sleep(2)
             clear()
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
             print(colorama.Fore.RED + "Your answer must be between the numbers (1-4)")
-            time.sleep(4)
+            time.sleep(2)
             clear()
 
     # Bonus Question Two
@@ -515,14 +515,14 @@ def book_survey():
         if attract in ['1', '2', '3', '4']:
             bonus_book_data.append(attract)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(4)
+            time.sleep(2)
             clear()
 
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
             print(colorama.Fore.RED + "Your answer must be between the numbers (1-4)")
-            time.sleep(4)
+            time.sleep(2)
             clear()
 
     # Question 4
@@ -538,14 +538,14 @@ def book_survey():
         if read_hours in ['1', '2', '3', '4']:
             book_data.append(read_hours)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(4)
+            time.sleep(2)
             clear()
 
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
             print(colorama.Fore.RED + "Your answer must be between the numbers (1-4)")
-            time.sleep(4)
+            time.sleep(2)
             clear()
 
     
@@ -568,13 +568,13 @@ def book_survey():
         if book_genre in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
             book_data.append(book_genre)
             print("We have collected this data, thank you and on to the next question!")
-            time.sleep(4)
+            time.sleep(2)
             clear()
             break
         else:
             print(colorama.Fore.RED + "Sorry but this entry is invalid.")
             print(colorama.Fore.RED + "You must select a number from 1-7")
-            time.sleep(3)
+            time.sleep(2)
             clear()
 
     # Bonus Question 3
@@ -603,7 +603,7 @@ def book_survey():
     bonus_book_data.append(book_favorite)
 
     print(colorama.Fore.CYAN + f"Thank you for answering {user_name}, on to the final question!")
-    time.sleep(3)
+    time.sleep(2)
     clear()
         
     
@@ -619,13 +619,13 @@ def book_survey():
         if reading in ['1', '2', '3', '4']:
             book_data.append(reading)
             print(f"Thank you for answering {user_name}.")
-            time.sleep(3)
+            time.sleep(2)
             clear()
             break 
         else:
             print(colorama.Fore.RED +"Sorry but this answer is invalid.")
             print(colorama.Fore.RED + "Please enter a value between [1-4]")
-            time.sleep(3)
+            time.sleep(2)
             clear()
 
 
