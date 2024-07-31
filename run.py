@@ -351,6 +351,8 @@ def film_survey():
     end_survey_film()  # Call the end_survey_film function here to conclude the survey
 
 def end_survey_film():
+    global user_choice # Creating a global variable to ensure that the right survey details are shown
+    user_choice = '1'
     clear()
     print(f"Thank you for taking this film survey, {user_name}!")
     print("This survey and the data recorded will help us understand")
@@ -642,6 +644,8 @@ def book_survey():
     end_survey_book()
 
 def end_survey_book():
+    global user_choice
+    user_choice = '2'
     clear()
     print(f"Thank you for taking this book survey, {user_name}!")
     print("This survey and the data recorded will help us understand")
