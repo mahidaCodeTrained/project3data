@@ -19,6 +19,7 @@ SHEET = GSPREAD_CLIENT.open('film/book_survey')
 
 # Global variable created so I can use user_name throughout project.
 user_name = None
+user_choice = None
 
 def clear():
     if os.name == 'nt':  # Windows
@@ -379,6 +380,9 @@ def end_survey_film():
             print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
             print("Please enter the number (1) or (2).")
 
+        
+        view_statistics()
+
 
 """
 This function book_survey was created for users who selected Option 2
@@ -601,8 +605,6 @@ def book_survey():
     clear()
         
     
-            
-
     # Question 6
     while True:
         print(colorama.Fore.YELLOW + "Question Six: When will you read your next book?\n")
@@ -624,8 +626,6 @@ def book_survey():
             time.sleep(3)
             clear()
 
-
-        
 
     # This allows for the data to append to Google Sheets
     try:
@@ -671,13 +671,33 @@ def end_survey_book():
             print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
             print("Please enter the number (1) or (2).")
 
+    view_statistics()
+
 
 def view_statistics():
     clear()
+    print("Welcome to the statistics.")
+    if user_choice == '1':
+        print("Displaying Film Survey Stats: ")
+        time.sleep(2)
+        worksheet = SHEET.worksheet('film')
+        all_values = worksheet.get_all_values()
 
+        for i in range(len(all_values[0])):
+            question = all_values[0][i]
+            choices = [row[i] for row in all_values[1:]]
+            total_responses = len(choices)
+            print(B_CYAN + f"User Choices {i + 1}: {question}")
+           
+            set_c = set(choices)
+            choice_counts = {choice: choices.count(choice) for choice in set_c}
+           
+            for choice, count in choice_counts.items():
+                 percentage = (count / total_responses) * 100
+                 print(B_GREEN + f"{choice}: {count} responses ({percentage:.2f}%)")
 
-
-
+        print()
+        
 
 
 # Entry point of the script
