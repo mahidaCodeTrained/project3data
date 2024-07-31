@@ -681,26 +681,16 @@ def end_survey_book():
 def view_statistics():
     clear()
     print("Welcome to the statistics.")
+    
+    # Make sure user_choice is defined or passed correctly
     if user_choice == '1':
         print("Displaying Film Survey Stats: ")
         time.sleep(2)
         worksheet = SHEET.worksheet('film')
         all_values = worksheet.get_all_values()
+        print(all_values)
 
-        for i in range(len(all_values[0])):
-            question = all_values[0][i]
-            choices = [row[i] for row in all_values[1:]]
-            total_responses = len(choices)
-            print(B_CYAN + f"User Choices {i + 1}: {question}")
-           
-            set_c = set(choices)
-            choice_counts = {choice: choices.count(choice) for choice in set_c}
-           
-            for choice, count in choice_counts.items():
-                 percentage = (count / total_responses) * 100
-                 print(B_GREEN + f"{choice}: {count} responses ({percentage:.2f}%)")
 
-        print()
         
 
 
