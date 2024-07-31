@@ -460,6 +460,84 @@ def book_survey():
             time.sleep(4)
             clear()
 
+    # Bonus Question Two
+    while True:
+        print(colorama.Fore.CYAN + "What type of book-cover attracts your eye?\n")
+        print(colorama.Fore.CYAN + "1. Colorful")
+        print(colorama.Fore.CYAN + "2. Interesting Picture")
+        print(colorama.Fore.CYAN + "3. Material")
+        print(colorama.Fore.CYAN + "4. Comments on Cover")
+
+        print(colorama.Fore.GREEN + "Please select an option through (1-4) using the numbers (1-4)")
+        attract = input("Please submit your answer: ")
+        if attract in ['1', '2', '3', '4']:
+            bonus_book_data.append(attract)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(4)
+            clear()
+
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
+            print(colorama.Fore.RED + "Your answer must be between the numbers (1-4)")
+            time.sleep(4)
+            clear()
+
+    # Question 4
+    while True:
+        print(colorama.Fore.YELLOW + "Question Four: Roughly, how many hours do you spend reading")
+        print(colorama.Fore.YELLOW + "a book at once during one book-reading session?\n")
+        print(colorama.Fore.YELLOW + "1. Under an hour")
+        print(colorama.Fore.YELLOW + "2. 1-2 hours")
+        print(colorama.Fore.YELLOW + "3. 2-4 hours")
+        print(colorama.Fore.YELLOW + "4. Over 4 hours")
+
+        read_hours = input("Please submit your answer: ")
+        if read_hours in ['1', '2', '3', '4']:
+            book_data.append(read_hours)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(4)
+            clear()
+
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
+            print(colorama.Fore.RED + "Your answer must be between the numbers (1-4)")
+            time.sleep(4)
+            clear()
+
+    
+    # Question 5
+    while True:
+        print(colorama.Fore.YELLOW + "From these options please tell us what is your favourite\
+ genre of book?\n")
+        print(colorama.Fore.YELLOW + "1. Fantasy")
+        print(colorama.Fore.YELLOW + "2. Dystopian")
+        print(colorama.Fore.YELLOW + "3. Romance Novel")
+        print(colorama.Fore.YELLOW + "4. Horror")
+        print(colorama.Fore.YELLOW + "5. Biography")
+        print(colorama.Fore.YELLOW + "6. Historical Fiction")
+        print(colorama.Fore.YELLOW + "7. Science Fiction")
+        print(colorama.Fore.YELLOW + "8. Humour")
+        print(colorama.Fore.YELLOW + "9. Childrens")
+        print(colorama.Fore.YELLOW + "10. Mystery")
+
+        fav_book = input("Please submit your answer:")
+        if fav_book in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
+            book_data.append(fav_book)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(3)
+            clear()
+
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
+            print(colorama.Fore.RED + "Your answer must be between the numbers (1-10)")
+            time.sleep(4)
+            clear()
+
+        
+
     # This allows for the data to append to Google Sheets
     try:
         book_survey_worksheet = SHEET.worksheet('book')
