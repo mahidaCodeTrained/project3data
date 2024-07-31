@@ -640,6 +640,10 @@ def book_survey():
 
         end_survey_book()
 
+def end_survey_book():
+    clear()
+
+
 
 
 # Entry point of the script
