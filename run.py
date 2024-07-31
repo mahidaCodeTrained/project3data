@@ -642,6 +642,39 @@ def book_survey():
 
 def end_survey_book():
     clear()
+    print(f"Thank you for taking this film survey, {user_name}!")
+    print("This survey and the data recorded will help us understand")
+    print("the mindset of a film enthusiast in 2024.\n")
+    
+    print("I'm sure you're keen to know just how everybody who has completed")
+    print("this survey has gotten on, so please select the option to 'View Statistics'.\n")
+    print("However, if you want to just exit the program then please select 'Exit'.\n")
+    
+    print("1. View Statistics")
+    print("2. Exit")
+
+    while True:
+        choice = input("Where would you like to go (1) or (2)? ")
+        if choice == '1':
+            view_statistics()
+            break
+        elif choice == '2':
+            print(colorama.Fore.GREEN + "Exiting the Survey")
+            print("Thank you for your time!")
+            time.sleep(2)
+            print("Your data submitted in this survey will be stored.")
+            print("May we meet again in another survey!")
+            time.sleep(3)
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
+            print("Please enter the number (1) or (2).")
+
+
+def view_statistics():
+    clear()
+
+
 
 
 
