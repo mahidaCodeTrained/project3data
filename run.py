@@ -193,13 +193,10 @@ def film_survey():
             print("We have collected this data, thank you!")
             time.sleep(4)
             clear()
-
             break
         else:
             print(colorama.Fore.RED + "The answer you have submitted is invalid.")
-            print(colorama.Fore.RED + "Please submit a number, either '1' or '2'\
-depending on your preference.")
-        
+            print(colorama.Fore.RED + "Please submit a number, either '1' or '2' depending on your preference.")
 
     """
     Question 3
@@ -232,8 +229,7 @@ depending on your preference.")
     """
     while True:
         print(colorama.Fore.YELLOW + "Question Four: Have you been to the cinema in the past month?\n ")
-        print(colorama.Fore.GREEN + "You must select either (1) or (2)\
- for 'Yes' or 'No'" )
+        print(colorama.Fore.GREEN + "You must select either (1) or (2) for 'Yes' or 'No'")
         print(colorama.Fore.YELLOW + "1. Yes")
         print(colorama.Fore.YELLOW + "2. No")
 
@@ -247,8 +243,7 @@ depending on your preference.")
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid.")
-            print(colorama.Fore.RED + "Please enter the number either ('1') or ('2')\
- depending on your choice..")
+            print(colorama.Fore.RED + "Please enter the number either ('1') or ('2') depending on your choice..")
             time.sleep(3)
             clear()
 
@@ -257,8 +252,7 @@ depending on your preference.")
     """
 
     while True:
-        print(colorama.Fore.YELLOW + "Question Five: From this selection what is your\
- favourite genre of film\n ")
+        print(colorama.Fore.YELLOW + "Question Five: From this selection what is your favourite genre of film\n ")
         print(colorama.Fore.YELLOW + "1. Action")
         print(colorama.Fore.YELLOW + "2. Drama")
         print(colorama.Fore.YELLOW + "3. Crime/Thriller")
@@ -266,8 +260,7 @@ depending on your preference.")
         print(colorama.Fore.YELLOW + "5. Comedy")
         print(colorama.Fore.YELLOW + "6. Sci-Fi")
         print(colorama.Fore.YELLOW + "7. Other\n")
-        print(colorama.Fore.GREEN + "In this question you must select an answer between\
- the numbers 1 and 7 depending on your preference.\n")
+        print(colorama.Fore.GREEN + "In this question you must select an answer between the numbers 1 and 7 depending on your preference.\n")
         genre = input("Please select an option now:")
 
         if genre in ['1', '2', '3', '4', '5', '6', '7']:
@@ -275,20 +268,24 @@ depending on your preference.")
             print("We have collected this data, thank you and on to the next question!")
             time.sleep(4)
             clear()
+            break
+        else:
+            print(colorama.Fore.RED + "Sorry but this entry is invalid.")
+            print(colorama.Fore.RED + "You must select a number from 1-7")
+            time.sleep(3)
+            clear()
             
-    
-
-
-
-    # Append the film data and bonus data to the Google Sheet
-    try: # To avoid any problems with appending data.
+    # Append the film data and bonus data to the Google Sheets
+    try:
         film_survey_worksheet = SHEET.worksheet("film")
         film_survey_worksheet.append_row(film_data)
-        film_survey_worksheet = SHEET.worksheet("bonus")
-        film_survey_worksheet.append_row(bonus_data)
+        bonus_survey_worksheet = SHEET.worksheet("bonus")
+        bonus_survey_worksheet.append_row(bonus_data)
     except Exception as e:
-         print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
-         print(colorama.Fore.RED + str(e))
+        print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
+        print(colorama.Fore.RED + str(e))
+
+
 
 
 
