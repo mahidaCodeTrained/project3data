@@ -41,6 +41,11 @@ def welcome_message():
     time.sleep(6)
     clear()
 
+"""
+The function "get_user_name_age" is designed to gather the users name and age
+through input. The user's input will then be delivered to a sheet called 'names'
+through appending the data.
+"""
 def get_user_name_age():
     global user_name
     while True:
@@ -73,6 +78,13 @@ def get_user_name_age():
     clear()
     return user_name
 
+"""
+The function "starting_page" is designed to introduce the survey and the two different
+tailored options that users can go about taking the survey. In either a moviergoer or 
+bookreader survey. The function is designed to transport the user to different functions depending
+on their answer to the question.
+"""   
+
 def starting_page():
     print(colorama.Fore.MAGENTA + "To begin this survey we need to know if you")
     print("are a moviegoer or a bookreader so we can tailor your experience!\n")
@@ -88,6 +100,11 @@ def starting_page():
         book_survey()  # Placeholder for book survey function
         clear()
 
+"""
+The film_survey function is designed for users who chose the "Moviergoer" option in the starting_page function
+This function is tailored with questions regarding film and the data provided by the user
+is collected and stored in a sheet named 'film' through appending the data in rows.
+"""
 def film_survey():
     if user_name is None:
         print(colorama.Fore.RED + "Error: User name not set. Please start the survey again.")
@@ -185,6 +202,14 @@ def film_survey():
             print(colorama.Fore.RED + "Please enter a number between 1 and 10.")
             time.sleep(2)
             clear()
+
+    """
+    Question 4
+    """
+    while True:
+        print(colorama.Fore.YELLOW + "Question Four:")
+
+
 
     # Append the film data to the Google Sheet
     film_survey_worksheet = SHEET.worksheet("film")
