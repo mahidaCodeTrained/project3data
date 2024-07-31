@@ -568,7 +568,24 @@ def book_survey():
 
     # Question 6
     while True:
-        print("")
+        print(colorama.Fore.YELLOW + "Question Six: When will you read your next book?\n")
+        print(colorama.Fore.YELLOW + "1. Today")
+        print(colorama.Fore.YELLOW + "2. This Week")
+        print(colorama.Fore.YELLOW + "3. This Month")
+        print(colorama.Fore.YELLOW + "4. This Year")
+
+        reading = input("Please enter your answer now: ")
+        if reading in ['1', '2', '3', '4']:
+            book_data.append(reading)
+            print(f"Thank you for answering {user_name}.")
+            time.sleep(4)
+            clear()
+            break 
+        else:
+            print(colorama.Fore.RED +"Sorry but this answer is invalid.")
+            print(colorama.Fore.RED + "Please enter a value between [1-4]")
+            time.sleep(3)
+            clear()
 
 
         
