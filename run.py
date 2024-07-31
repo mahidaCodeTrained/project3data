@@ -190,7 +190,7 @@ def film_survey():
         bonus_snack = input("Please enter an answer now: ")
         if bonus_snack in ['1', '2']:
             bonus_data.append(bonus_snack)
-            print("We have collected this data, thank you!")
+            print("We have collected this data, thank you and on to the next question!")
             time.sleep(4)
             clear()
             break
@@ -209,7 +209,7 @@ def film_survey():
             often_rating = int(input("Please enter a rating between 1-10: "))
             if 1 <= often_rating <= 10:
                 film_data.append(str(often_rating))
-                print("We have collected this data, thank you!")
+                print("We have collected this data, thank you and on to the next question!")
                 time.sleep(2)
                 clear()
                 break
@@ -401,29 +401,147 @@ def film_survey():
             clear()
 
 
+            try:
+                film_survey_worksheet = SHEET.worksheet("film")
+                film_survey_worksheet.append_row(film_data)
+                bonus_survey_worksheet = SHEET.worksheet("bonus")
+                bonus_survey_worksheet.append_row(bonus_data)
+               
+            except Exception as e:
+                print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
+                print(colorama.Fore.RED + str(e))
+
+
+
+
+def book_survey():
+    if user_name is None:
+        print(colorama.Fore.RED + "Error: User name not set. Please start the survey again.")
+        return
+
+    print(colorama.Fore.GREEN + "The book survey will now begin!")
+    time.sleep(3)
+    clear()
+
+    print(colorama.Fore.GREEN + f"Once again, welcome {user_name} we are thrilled that you have")
+    print(colorama.Fore.GREEN + "taken the time to take this short survey!\n")
+    time.sleep(4)
+    print(colorama.Fore.GREEN + "As you have selected option 2 'Bookreader' we have taken this into account")
+    print(colorama.Fore.GREEN + "and have built a tailormade survey just for you to dive into.")
+    print(colorama.Fore.GREEN + "It's now time to sit back get a drink or some popcorn and answer a few questions!")
+    time.sleep(7)
+    clear()
+
+    book_data = []
+    bonus_book_data = []
+
+
+   # Question 1
     
-  
+    while True:
+        print(colorama.Fore.YELLOW + "Question One: From a scale of 1-10 please tell me how")
+        print(colorama.Fore.YELLOW + "often you read books\n")
+        print(colorama.Fore.GREEN + "You must answer this question with numbers ranging from 1-10")
+        print(colorama.Fore.GREEN + "(1 is extremely rarely, 10 is all the time).")
+        try:
+            often_read = int(input("Please enter a rating between 1-10: "))
+            if 1 <= often_read <= 10:
+                book_data.append(str(often_read))  # Convert to string for consistency
+                print("We have collected this data, thank you and on to the next question!")
+                time.sleep(2)
+                clear()
+                break
+            else:
+                print(colorama.Fore.RED + "Invalid rating.")
+                print(colorama.Fore.RED + "Please enter a number between 1 and 10.")
+                time.sleep(2)
+                clear()
+        except ValueError:
+            print(colorama.Fore.RED + "Invalid input.")
+            print(colorama.Fore.RED + "Please enter a number between 1 and 10.")
+            time.sleep(2)
+            clear()
+        
+   # Bonus Book Question 1
+     
+    while True:
+        print(colorama.Fore.YELLOW + "Bonus Question One: Have you ever been to a book convention?\n")
+        print(colorama.Fore.CYAN + "1. Yes")
+        print(colorama.Fore.CYAN + "2. No\n")
+        print(colorama.Fore.GREEN + "You must answer this question with the numbers (1) or (2).")
 
+
+        convention = input("Please enter your answer: ")
+        if convention in ['1', '2']:
+            bonus_book_data.append(convention)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(3)
+            clear()
+
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid.")
+            print("You must answer with the numbers (1) or (2).")
+            time.sleep(3)
+            clear()
+        
+
+  #  Question 2
     
+    while True:
+        print(colorama.Fore.YELLOW + "Question Two: What type of books do you read/view?\n")
+        print(colorama.Fore.YELLOW + "1. Physical Books")
+        print(colorama.Fore.YELLOW + "2. E-books")
+        print(colorama.Fore.YELLOW + "3. Audiobooks")  
+        print(colorama.Fore.GREEN + "You must enter a value between (1-3) based on your preference.")
 
+        book_type = input("Please enter your answer now: ")
+        if book_type in ['1', '2', '3']:
+            book_data.append(book_type)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(3)
+            clear()
 
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
+            print(colorama.Fore.RED + "Your answer must be between the numbers (1-3)")
+            time.sleep(4)
+            clear()
+        
+   #  Question 3
     
+    while True:
+        print(colorama.Fore.YELLOW + "Question Two: When you purchase a book how important is the")
+        print(colorama.Fore.YELLOW + "cover-art in the psychology of making your purchase\n")
+        print(colorama.Fore.YELLOW + "1. Very Important")
+        print(colorama.Fore.YELLOW + "2. Somewhat Important")
+        print(colorama.Fore.YELLOW + "3. Not Very Important")
+        print(colorama.Fore.YELLOW + "4. Not at all Important\n")
+       
+        print(colorama.Fore.GREEN + "You must enter a value between (1-4) based on your preference.")
 
+        cover_art = input("Please enter your answer now: ")
+        if cover_art in ['1', '2', '3', '4']:
+            book_data.append(cover_art)
+            print("We have collected this data, thank you and on to the next question!")
 
-
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
+            print(colorama.Fore.RED + "Your answer must be between the numbers (1-4)")
 
 
     # Append the film data and bonus data to the Google Sheets
     try:
-        film_survey_worksheet = SHEET.worksheet("film")
-        film_survey_worksheet.append_row(film_data)
-        bonus_survey_worksheet = SHEET.worksheet("bonus")
-        bonus_survey_worksheet.append_row(bonus_data)
+        book_survey_worksheet = SHEET.worksheet('book')
+        book_survey_worksheet.append_row(book_data)
+        bonus_book_survey_worksheet = SHEET.worksheet('bonusbook')
+        bonus_book_survey_worksheet.append_row(bonus_book_data)
+
     except Exception as e:
         print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
         print(colorama.Fore.RED + str(e))
-
-
 
 
 
