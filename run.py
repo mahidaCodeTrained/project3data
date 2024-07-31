@@ -182,7 +182,7 @@ def film_survey():
     Bonus Question 1
     """
     while True:
-        print(colorama.Fore.CYAN + "Bonus Question 1: Do you purchase snacks and drinks at the cinema?\n")
+        print(colorama.Fore.CYAN + "Bonus Question One: Do you purchase snacks and drinks at the cinema?\n")
         print(colorama.Fore.CYAN + "1. Yes")
         print(colorama.Fore.CYAN + "2. No\n")
 
@@ -248,9 +248,39 @@ def film_survey():
             clear()
 
     """
+    Bonus Question 2
+    """        
+
+    while True:
+        print(colorama.Fore.CYAN + "Bonus Question Two: What day do you usually go\
+ to the cinema?")
+        print(colorama.Fore.CYAN + "1. Monday")
+        print(colorama.Fore.CYAN + "2. Tuesday")
+        print(colorama.Fore.CYAN + "3. Wednesday")
+        print(colorama.Fore.CYAN + "4. Thursday")
+        print(colorama.Fore.CYAN + "5. Friday")
+        print(colorama.Fore.CYAN + "6. Saturday")
+        print(colorama.Fore.CYAN + "7. Sunday")
+
+        day_cinema = input("Please submit your answer now: ")
+        
+        if day_cinema in ['1', '2', '3', '4', '5', '6', '7']:
+            bonus_data.append(day_cinema)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(4)
+            clear()
+            
+            break
+        else:
+            print(colorama.Fore.RED + "The answer you have submitted is invalid.")
+            print(colorama.Fore.RED + "Please submit a number, between '1' or '7' depending on your preference.")
+            time.sleep(2)
+            clear()
+        
+
+    """
     Question 5
     """
-
     while True:
         print(colorama.Fore.YELLOW + "Question Five: From this selection what is your favourite genre of film\n ")
         print(colorama.Fore.YELLOW + "1. Action")
@@ -261,7 +291,7 @@ def film_survey():
         print(colorama.Fore.YELLOW + "6. Sci-Fi")
         print(colorama.Fore.YELLOW + "7. Other\n")
         print(colorama.Fore.GREEN + "In this question you must select an answer between the numbers 1 and 7 depending on your preference.\n")
-        genre = input("Please select an option now:")
+        genre = input("Please select an option now: ")
 
         if genre in ['1', '2', '3', '4', '5', '6', '7']:
             film_data.append(genre)
@@ -274,7 +304,81 @@ def film_survey():
             print(colorama.Fore.RED + "You must select a number from 1-7")
             time.sleep(3)
             clear()
-            
+
+    """
+    Bonus Question 3
+    """
+    if genre == '1':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite action movie?")
+        favorite = input("Please enter your answer: ")
+        bonus_data.append(favorite)
+
+        print(colorama.Fore.CYAN + f"Thank you for answering {user_name},\
+ on to the final question!")
+        time.sleep(4)
+        clear()
+    
+    elif genre == '2':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite drama movie?")
+        favorite = input("Please enter your answer: ")
+        bonus_data.append(favorite)
+
+        print(colorama.Fore.CYAN + f"Thank you for answering {user_name},\
+ on to the final question!")
+        time.sleep(4)
+        clear()
+    
+    elif genre == '3':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite crime movie?")
+        favorite = input("Please enter your answer: ")
+        bonus_data.append(favorite)
+
+        print(colorama.Fore.CYAN + f"Thank you for answering {user_name},\
+ on to the final question!")
+        time.sleep(4)
+        clear()
+    
+    elif genre == '4':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite romance movie?")
+        favorite = input("Please enter your answer: ")
+        bonus_data.append(favorite)
+
+        print(colorama.Fore.CYAN + f"Thank you for answering {user_name},\
+ on to the final question!")
+        time.sleep(4)
+        clear()
+    
+    elif genre == '5':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite comedy movie?")
+        favorite = input("Please enter your answer: ")
+        bonus_data.append(favorite)
+
+        print(colorama.Fore.CYAN + f"Thank you for answering {user_name},\
+ on to the final question!")
+        time.sleep(4)
+        clear()
+    
+    elif genre == '6':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite Sci-Fi movie?")
+        favorite = input("Please enter your answer: ")
+        bonus_data.append(favorite)
+
+        print(colorama.Fore.CYAN + f"Thank you for answering {user_name},\
+ on to the final question!")
+        time.sleep(4)
+        clear()
+    
+    elif genre == '7':
+        print(colorama.Fore.CYAN + "Bonus Question Three: I see that you have selected 'Other'\
+ I'll simply ask what is your all-time favorite movie?\n")
+        favorite = input("Please enter your answer: ")
+        bonus_data.append(favorite)
+
+        print(colorama.Fore.CYAN + f"Thank you for answering {user_name},\
+ on to the final question!")
+        time.sleep(4)
+        clear()
+
     # Append the film data and bonus data to the Google Sheets
     try:
         film_survey_worksheet = SHEET.worksheet("film")
