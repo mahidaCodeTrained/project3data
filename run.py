@@ -398,7 +398,7 @@ def book_survey():
 
     # Bonus Book Question 1
     while True:
-        print(colorama.Fore.YELLOW + "Bonus Question One: Have you ever been to a book convention?\n")
+        print(colorama.Fore.CYAN + "Bonus Question One: Have you ever been to a book convention?\n")
         print(colorama.Fore.CYAN + "1. Yes")
         print(colorama.Fore.CYAN + "2. No\n")
         print(colorama.Fore.GREEN + "You must answer this question with the numbers (1) or (2).")
@@ -462,7 +462,7 @@ def book_survey():
 
     # Bonus Question Two
     while True:
-        print(colorama.Fore.CYAN + "What type of book-cover attracts your eye?\n")
+        print(colorama.Fore.CYAN + "Bonus Question Two: What type of book-cover attracts your eye?\n")
         print(colorama.Fore.CYAN + "1. Colorful")
         print(colorama.Fore.CYAN + "2. Interesting Picture")
         print(colorama.Fore.CYAN + "3. Material")
@@ -509,7 +509,7 @@ def book_survey():
     
     # Question 5
     while True:
-        print(colorama.Fore.YELLOW + "From these options please tell us what is your favourite\
+        print(colorama.Fore.YELLOW + "Question Five: From these options please tell us what is your favourite\
  genre of book?\n")
         print(colorama.Fore.YELLOW + "1. Fantasy")
         print(colorama.Fore.YELLOW + "2. Dystopian")
@@ -535,6 +535,41 @@ def book_survey():
             print(colorama.Fore.RED + "Your answer must be between the numbers (1-10)")
             time.sleep(4)
             clear()
+   
+    # Bonus Question 3
+    if fav-book == '1':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite fantasy book?")
+    elif fav-book == '2':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite dystopian novel?")
+    elif fav-book == '3':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite romance Novel?")
+    elif fav_book == '4':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite horror book?")
+    elif fav-book == '5':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite biography?")
+    elif fav_book == '6':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite historical fiction novel?")
+    elif fav-book == '7':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite science fiction novel?\n")
+    elif fav-book == '8':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite humour novel?\n")
+    elif fav-book == '9':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite childrens book?\n")
+    elif fav-book == '10':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite Mystery novel?\n")
+
+        fav_book = input("Please enter your answer: ")
+    bonus_book_data.append(fav_book)
+
+    print(colorama.Fore.CYAN + f"Thank you for answering {user_name}, on to the final question!")
+    time.sleep(4)
+    clear()
+
+
+    # Question 6
+    while True:
+        print("")
+
 
         
 
