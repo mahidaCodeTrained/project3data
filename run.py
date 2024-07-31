@@ -281,10 +281,15 @@ depending on your preference.")
 
 
     # Append the film data and bonus data to the Google Sheet
-    film_survey_worksheet = SHEET.worksheet("film")
-    film_survey_worksheet.append_row(film_data)
-    film_survey_worksheet = SHEET.worksheet("bonus")
-    film_survey_worksheet.append_row(bonus_data)
+    try: # To avoid any problems with appending data.
+        film_survey_worksheet = SHEET.worksheet("film")
+        film_survey_worksheet.append_row(film_data)
+        film_survey_worksheet = SHEET.worksheet("bonus")
+        film_survey_worksheet.append_row(bonus_data)
+    except Exception as e:
+         print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
+         print(colorama.Fore.RED + str(e))
+
 
 
 # Entry point of the script
