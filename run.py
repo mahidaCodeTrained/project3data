@@ -545,8 +545,7 @@ def book_survey():
     
     # Question 5
     while True:
-        print(colorama.Fore.YELLOW + "Question Five: From these options please tell us what is your favourite\
- genre of book?\n")
+        print(colorama.Fore.YELLOW + "Question Five: From this selection what is your favourite genre of book/novel\n ")
         print(colorama.Fore.YELLOW + "1. Fantasy")
         print(colorama.Fore.YELLOW + "2. Dystopian")
         print(colorama.Fore.YELLOW + "3. Romance Novel")
@@ -554,53 +553,55 @@ def book_survey():
         print(colorama.Fore.YELLOW + "5. Biography")
         print(colorama.Fore.YELLOW + "6. Historical Fiction")
         print(colorama.Fore.YELLOW + "7. Science Fiction")
-        print(colorama.Fore.YELLOW + "8. Humour")
+        print(colorama.Fore.YELLOW + "8. Action")
         print(colorama.Fore.YELLOW + "9. Childrens")
-        print(colorama.Fore.YELLOW + "10. Mystery")
+        print(colorama.Fore.YELLOW + "10. Mystery\n")
 
-        fav_book = input("Please submit your answer:")
-        if fav_book in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
-            book_data.append(fav_book)
+    
+        book_genre = input("Please submit your answer: ")
+        if book_genre in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
+            book_data.append(book_genre)
             print("We have collected this data, thank you and on to the next question!")
+            time.sleep(4)
+            clear()
+            break
+        else:
+            print(colorama.Fore.RED + "Sorry but this entry is invalid.")
+            print(colorama.Fore.RED + "You must select a number from 1-7")
             time.sleep(3)
             clear()
 
-            break
-        else:
-            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid")
-            print(colorama.Fore.RED + "Your answer must be between the numbers (1-10)")
-            time.sleep(4)
-            clear()
-   
     # Bonus Question 3
-    if fav_book == '1':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite fantasy book?")
-    elif fav_book == '2':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite dystopian novel?")
-    elif fav_book == '3':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite romance Novel?")
-    elif fav_book == '4':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite horror book?")
-    elif fav_book == '5':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite biography?")
-    elif fav_book == '6':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all-time favorite historical fiction novel?")
-    elif fav_book == '7':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite science fiction novel?\n")
-    elif fav_book == '8':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite humour novel?\n")
-    elif fav_book == '9':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite childrens book?\n")
-    elif fav_book == '10':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your all time favourite Mystery novel?\n")
-
-        fav_book = input("Please enter your answer: ")
-    bonus_book_data.append(fav_book)
+    if book_genre == '1':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite fantasy novel?")
+    elif book_genre == '2':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite dystopian novel?")
+    elif book_genre == '3':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite romance novel?")
+    elif book_genre == '4':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite horror novel?")
+    elif book_genre == '5':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite biography?")
+    elif book_genre == '6':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is youur favourite historical fiction novel?")
+    elif book_genre == '7':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite science fiction novel?")
+    elif book_genre == '8':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite action novel?")
+    elif book_genre == '9':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favouirite childrens book?")
+    elif book_genre == '10':
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite mystery novel?")
+    
+    book_favorite = input("Please enter your answer: ")
+    bonus_book_data.append(book_favorite)
 
     print(colorama.Fore.CYAN + f"Thank you for answering {user_name}, on to the final question!")
-    time.sleep(4)
+    time.sleep(3)
     clear()
-
+        
+    
+            
 
     # Question 6
     while True:
@@ -614,7 +615,7 @@ def book_survey():
         if reading in ['1', '2', '3', '4']:
             book_data.append(reading)
             print(f"Thank you for answering {user_name}.")
-            time.sleep(4)
+            time.sleep(3)
             clear()
             break 
         else:
@@ -638,11 +639,11 @@ def book_survey():
         print(colorama.Fore.RED + str(e))
 
 
-        end_survey_book()
+    end_survey_book()
 
 def end_survey_book():
     clear()
-    print(f"Thank you for taking this film survey, {user_name}!")
+    print(f"Thank you for taking this book survey, {user_name}!")
     print("This survey and the data recorded will help us understand")
     print("the mindset of a film enthusiast in 2024.\n")
     
