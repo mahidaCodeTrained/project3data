@@ -46,6 +46,7 @@ The function "get_user_name_age" is designed to gather the users name and age
 through input. The user's input will then be delivered to a sheet called 'names'
 through appending the data.
 """
+
 def get_user_name_age():
     global user_name
     while True:
@@ -106,7 +107,6 @@ This function is tailored with questions regarding film and the data provided by
 is collected and stored in a sheet named 'film' through appending the data in rows.
 """
 def film_survey():
-    global user_name  # Ensure user_name is recognized in this function
     if user_name is None:
         print(colorama.Fore.RED + "Error: User name not set. Please start the survey again.")
         return
@@ -115,12 +115,12 @@ def film_survey():
     time.sleep(3)
     clear()
 
-    print(colorama.Fore.GREEN + f"Once again, welcome {user_name}, we are thrilled that you have")
+    print(colorama.Fore.GREEN + f"Once again, welcome {user_name} we are thrilled that you have")
     print(colorama.Fore.GREEN + "taken the time to take this short survey!\n")
     time.sleep(4)
     print(colorama.Fore.GREEN + "As you have selected option 1 'Moviegoer' we have taken this into account")
     print(colorama.Fore.GREEN + "and have built a tailormade survey just for you to dive into.")
-    print(colorama.Fore.GREEN + "It's now time to sit back, get a drink or some popcorn, and answer a few questions!")
+    print(colorama.Fore.GREEN + "It's now time to sit back get a drink or some popcorn and answer a few questions!")
     time.sleep(7)
     clear()
 
@@ -136,7 +136,7 @@ def film_survey():
         print(colorama.Fore.YELLOW + "3. Mild Enthusiasm")
         print(colorama.Fore.YELLOW + "4. Little Enthusiasm\n")
 
-        film_answer = input("Please enter your answer (from '1' '2' '3' '4'): ")
+        film_answer = input("Please enter your answer(from '1' '2' '3' '4'): ")
 
         if film_answer in ['1', '2', '3', '4']:
             film_data.append(film_answer)
@@ -153,7 +153,7 @@ def film_survey():
     # Question 2
     while True:
         print(colorama.Fore.YELLOW + "Question Two: On a scale of 1-10 how would you rate")
-        print(colorama.Fore.YELLOW + "the cinema-going experience in 2024 based on its enjoyableness? ")
+        print(colorama.Fore.YELLOW + "the cinema going experience in 2024 based on its enjoyableness? ")
         print(colorama.Fore.GREEN + "You must answer this question with numbers ranging from 1-10")
         print(colorama.Fore.GREEN + "(1 is least enjoyable, 10 is greatly enjoyable).")
         try:
@@ -311,8 +311,9 @@ def film_survey():
     print(colorama.Fore.CYAN + f"Thank you for answering {user_name}, on to the final question!")
     time.sleep(4)
     clear()
+  
+    
 
-    # Question 6
     while True:
         print(colorama.Fore.YELLOW + "Question Six: When will you watch your next movie?\n")
         print(colorama.Fore.YELLOW + "1. Today")
@@ -342,6 +343,41 @@ def film_survey():
     except Exception as e:
         print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
         print(colorama.Fore.RED + str(e))
+
+
+
+    print("Calling end_survey_film() now...")  # Debugging statement
+    end_survey_film()  # Call the end_survey_film function here to conclude the survey
+
+def end_survey_film():
+    clear()
+    print(f"Thank you for taking this film survey, {user_name}!")
+    print("This survey and the data recorded will help us understand")
+    print("the mindset of a film enthusiast in 2024.\n")
+    
+    print("I'm sure you're keen to know just how everybody who has completed")
+    print("this survey has gotten on, so please select the option to 'View Statistics'.\n")
+    print("However, if you want to just exit the program then please select 'Exit'.\n")
+    
+    print("1. View Statistics")
+    print("2. Exit")
+
+    while True:
+        choice = input("Where would you like to go (1) or (2)? ")
+        if choice == '1':
+            view_statistics()
+            break
+        elif choice == '2':
+            print(colorama.Fore.GREEN + "Exiting the Survey")
+            print("Thank you for your time!")
+            time.sleep(2)
+            print("Your data submitted in this survey will be stored.")
+            print("May we meet again in another survey!")
+            time.sleep(3)
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
+            print("Please enter the number (1) or (2).")
 
 
 """
@@ -600,6 +636,9 @@ def book_survey():
     except Exception as e:
         print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
         print(colorama.Fore.RED + str(e))
+
+
+        end_survey_book()
 
 
 
