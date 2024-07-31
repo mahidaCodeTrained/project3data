@@ -124,6 +124,7 @@ def film_survey():
     clear()
 
     film_data = []
+    bonus_data = []
 
     """
     Question 1
@@ -178,6 +179,29 @@ def film_survey():
             clear()
 
     """
+    Bonus Question 1
+    """
+    while True:
+        print(colorama.Fore.CYAN + "Bonus Question 1: Do you purchase snacks and drinks at the cinema?\n")
+        print(colorama.Fore.CYAN + "1. Yes")
+        print(colorama.Fore.CYAN + "2. No\n")
+
+        print("Your answer must be either the numbers (1) or (2)")
+        bonus_snack = input("Please enter an answer now: ")
+        if bonus_snack in ['1', '2']:
+            bonus_data.append(bonus_snack)
+            print("We have collected this data, thank you!")
+            time.sleep(4)
+            clear()
+
+            break
+        else:
+            print(colorama.Fore.RED + "The answer you have submitted is invalid.")
+            print(colorama.Fore.RED + "Please submit a number, either '1' or '2'\
+depending on your preference.")
+        
+
+    """
     Question 3
     """ 
     while True:
@@ -207,13 +231,61 @@ def film_survey():
     Question 4
     """
     while True:
-        print(colorama.Fore.YELLOW + "Question Four:")
+        print(colorama.Fore.YELLOW + "Question Four: Have you been to the cinema in the past month?\n ")
+        print(colorama.Fore.GREEN + "You must select either (1) or (2)\
+ for 'Yes' or 'No'" )
+        print(colorama.Fore.YELLOW + "1. Yes")
+        print(colorama.Fore.YELLOW + "2. No")
+
+        cinema = input("Please submit your answer now: ")
+
+        if cinema in ['1', '2']:
+            film_data.append(cinema)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(3)
+            clear()
+            break
+        else:
+            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid.")
+            print(colorama.Fore.RED + "Please enter the number either ('1') or ('2')\
+ depending on your choice..")
+            time.sleep(3)
+            clear()
+
+    """
+    Question 5
+    """
+
+    while True:
+        print(colorama.Fore.YELLOW + "Question Five: From this selection what is your\
+ favourite genre of film\n ")
+        print(colorama.Fore.YELLOW + "1. Action")
+        print(colorama.Fore.YELLOW + "2. Drama")
+        print(colorama.Fore.YELLOW + "3. Crime/Thriller")
+        print(colorama.Fore.YELLOW + "4. Romance")
+        print(colorama.Fore.YELLOW + "5. Comedy")
+        print(colorama.Fore.YELLOW + "6. Sci-Fi")
+        print(colorama.Fore.YELLOW + "7. Other\n")
+        print(colorama.Fore.GREEN + "In this question you must select an answer between\
+ the numbers 1 and 7 depending on your preference.\n")
+        genre = input("Please select an option now:")
+
+        if genre in ['1', '2', '3', '4', '5', '6', '7']:
+            film_data.append(genre)
+            print("We have collected this data, thank you and on to the next question!")
+            time.sleep(4)
+            clear()
+            
+    
 
 
 
-    # Append the film data to the Google Sheet
+    # Append the film data and bonus data to the Google Sheet
     film_survey_worksheet = SHEET.worksheet("film")
     film_survey_worksheet.append_row(film_data)
+    film_survey_worksheet = SHEET.worksheet("bonus")
+    film_survey_worksheet.append_row(bonus_data)
+
 
 # Entry point of the script
 welcome_message()
