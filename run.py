@@ -698,7 +698,7 @@ def view_statistics():
         'Mild Enthusiasm': 0,
         'Little Enthusiasm': 0,
         'Ratings': [],
-        'Frequency of Watching': [],
+        'Average Watching': [],
         'Cinema Visits': {'Yes': 0, 'No': 0},
         'Genres': {'Action': 0, 'Drama': 0, 'Crime/Thriller': 0, 'Romance': 0, 'Comedy': 0, 'Sci-Fi': 0, 'Other': 0}
     }
@@ -778,15 +778,15 @@ def view_statistics():
             
             film_counts['Ratings'].append(int(row.get('Cinema Rating', 0)))
            
-            film_counts['Frequency of Watching'].append(int(row.get('How often you watch Movies?', 0)))
+            film_counts['Average Watching'].append(int(row.get('How often you watch Movies?', 0)))
             
-            cinema_visit = row.get('Cinema Visit', '2')
+            cinema_visit = row.get('Cinema Visit')
             if cinema_visit == '1':
                 film_counts['Cinema Visits']['Yes'] += 1
             else:
                 film_counts['Cinema Visits']['No'] += 1
             
-            genre = row.get('Genre',)
+            genre = row.get('Genre')
             if genre == '1':
                 film_counts['Genres']['Action'] += 1
             elif genre == '2':
@@ -839,7 +839,7 @@ def view_statistics():
             reading_freq = int(row.get('Reading Frequency', 0))
             book_counts['Reading Frequency'].append(reading_freq)
             
-            book_type = row.get('Book Type', 'Physical Books')
+            book_type = row.get('Book Type')
             if book_type == '1':
                 book_counts['Book Types']['Physical Books'] += 1
             elif book_type == '2':
@@ -908,7 +908,7 @@ def view_statistics():
                 bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
 
                 for row in bonus_book_data:
-                    fav_book_genre = int(row.get('Genre', 0))
+                    fav_book_genre = int(row.get('Book Genre', 0))
                     favorite_book = row.get('Favorite Book', '')
                     
             
@@ -944,7 +944,7 @@ def view_statistics():
     print(f"Mild Enthusiasm: {film_counts['Mild Enthusiasm']}")
     print(f"Little Enthusiasm: {film_counts['Little Enthusiasm']}")
     print(f"Average Cinema Rating: {sum(film_counts['Ratings']) / len(film_counts['Ratings']) if film_counts['Ratings'] else 0}")
-    print(f"Frequency of Watching: {film_counts['Frequency of Watching']}")
+    print(f"Average Watching: {sum(film_counts['Average Watching']) / len(film_counts['Average Watching']) if film_counts['Average Watching'] else 0}")
     print(f"Cinema Visits - Yes: {film_counts['Cinema Visits']['Yes']}, No: {film_counts['Cinema Visits']['No']}")
     print(f"Genres: {film_counts['Genres']}")
     
@@ -967,7 +967,7 @@ def view_statistics():
     for genre, books in bonus_book_counts.items():
         print(f"{fav_book_genre}: {books}")
 
-        input("Are you done?")
+        input("Are you done?: ")
 
 # Entry point of the script
 welcome_message()
