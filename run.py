@@ -931,39 +931,42 @@ def view_statistics():
                 bonus_book_counts['Favorite Children’s Book'].append(favorite_book)
             elif fav_book_genre == 10:
                 bonus_book_counts['Favorite Mystery Book'].append(favorite_book)
-
+    
     except Exception as e:
         print(colorama.Fore.RED + f"An error occurred: {e}")
-    input("Please answer: ")
+
+   
     # Print out statistics
-    print(colorama.Fore.CYAN + "\nFilm Survey Statistics:\n")
+    print(colorama.Fore.YELLOW + "\nFilm Survey Statistics:\n")
     print(f"Super Enthusiasm: {film_counts['Super Enthusiasm']}")
     print(f"Moderate Enthusiasm: {film_counts['Moderate Enthusiasm']}")
     print(f"Mild Enthusiasm: {film_counts['Mild Enthusiasm']}")
     print(f"Little Enthusiasm: {film_counts['Little Enthusiasm']}")
     print(f"Average Cinema Rating: {sum(film_counts['Ratings']) / len(film_counts['Ratings']) if film_counts['Ratings'] else 0}")
-    print(f"Snack Purchases - Yes: {film_counts['Snack Purchases']['Yes']}, No: {film_counts['Snack Purchases']['No']}")
     print(f"Frequency of Watching: {film_counts['Frequency of Watching']}")
     print(f"Cinema Visits - Yes: {film_counts['Cinema Visits']['Yes']}, No: {film_counts['Cinema Visits']['No']}")
-    print(f"Days to Cinema: {film_counts['Days to Cinema']}")
     print(f"Genres: {film_counts['Genres']}")
     
     print(colorama.Fore.CYAN + "\nBonus Film Survey Statistics:\n")
+    print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases']['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
+    print(f"Days to Cinema: {bonus_film_counts['Days to Cinema']}")
     for genre, movies in bonus_film_counts.items():
         print(f"{genre}: {movies}")
 
     print(colorama.Fore.CYAN + "\nBook Survey Statistics:\n")
     print(f"Reading Frequency: {book_counts['Reading Frequency']}")
-    print(f"Book Convention Attendance - Yes: {book_counts['Book Convention Attendance']['Yes']}, No: {book_counts['Book Convention Attendance']['No']}")
     print(f"Book Types: {book_counts['Book Types']}")
     print(f"Cover Art Importance: {book_counts['Cover Art Importance']}")
-    print(f"Cover Attraction: {book_counts['Cover Attraction']}")
     print(f"Reading Duration: {book_counts['Reading Duration']}")
     print(f"Genres: {book_counts['Genres']}")
     
     print(colorama.Fore.CYAN + "\nBonus Book Survey Statistics:\n")
+    print(f"Book Convention Attendance - Yes: {bonus_book_counts['Book Convention Attendance']['Yes']}, No: {bonus_book_counts['Book Convention Attendance']['No']}")
+    print(f"Cover Attraction: {bonus_book_counts['Cover Attraction']}")
     for genre, books in bonus_book_counts.items():
-        print(f"{genre}: {books}")
+        print(f"{fav_book_genre}: {books}")
+
+        input("Are you done?")
 
 # Entry point of the script
 welcome_message()
