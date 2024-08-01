@@ -261,7 +261,7 @@ def film_survey():
 
         day_cinema = input("Please submit your answer now: ")
 
-        if day_cinema in ['1', '2', '3', '4', '5', '6', '7']:
+        if day_cinema in [1, 2, 3, 4, 5, 6, 7]:
             bonus_data.append(day_cinema)
             print("We have collected this data, thank you and on to the next question!")
             time.sleep(2)
@@ -416,7 +416,7 @@ def book_survey():
     print(colorama.Fore.GREEN + "As you have selected option 2 'Bookreader' we have taken this into account")
     print(colorama.Fore.GREEN + "and have built a tailor-made survey just for you to dive into.")
     print(colorama.Fore.GREEN + "It's now time to sit back, get a drink or some popcorn, and answer a few questions!")
-    time.sleep(7)
+    time.sleep(5)
     clear()
 
     book_data = []
@@ -520,12 +520,15 @@ def book_survey():
         print(colorama.Fore.CYAN + "4. Comments on Cover")
 
         print(colorama.Fore.GREEN + "Please select an option through (1-4) using the numbers (1-4)")
+        
         attract = input("Please submit your answer: ")
-        if attract in ['1', '2', '3', '4']:
+        attract = int(attract)
+        if attract in [1, 2, 3, 4]:
             bonus_book_data.append(attract)
             print("We have collected this data, thank you and on to the next question!")
             time.sleep(2)
             clear()
+            
 
             break
         else:
@@ -727,23 +730,24 @@ def view_statistics():
         
        
     }
-    try:
+   # try:
         # Fetch film survey data
-        film_worksheet = SHEET.worksheet("film")
-        film_data = film_worksheet.get_all_records()
+    film_worksheet = SHEET.worksheet("film")
+    film_data = film_worksheet.get_all_records()
         # Fetch bonus film data
-        bonus_film_worksheet = SHEET.worksheet("bonus")
-        bonus_film_data = bonus_film_worksheet.get_all_records()
+    bonus_worksheet = SHEET.worksheet("bonus")
+    bonus_data = bonus_worksheet.get_all_records()
         
         # Fetch book survey data
-        book_worksheet = SHEET.worksheet("book")
-        book_data = book_worksheet.get_all_records()
+    book_worksheet = SHEET.worksheet("book")
+    book_data = book_worksheet.get_all_records()
         # Fetch bonus book data
-        bonus_book_worksheet = SHEET.worksheet("bookbonus")
-        bonus_book_data = bonus_book_worksheet.get_all_records()
+    bonus_book_worksheet = SHEET.worksheet("bookbonus")
+    bonus_book_data = bonus_book_worksheet.get_all_records()
         # Process film data
-        print(colorama.Fore.GREEN + "\nFilm Survey Statistics:\n")
-        for row in film_data:
+        
+    for row in film_data:
+            print(row)
             enthusiasm = int(row.get('Enthusiasm', 0))
             if enthusiasm == 1:
                 film_counts['Super Enthusiasm'] += 1
@@ -781,69 +785,55 @@ def view_statistics():
                 film_counts['Genres']['Other'] += 1
 
         # Process bonus film data
-        print(colorama.Fore.MAGENTA + "Bonus Film Stats")
-        for row in bonus_film_data:
-            snack_purchase = row.get('Snack Purchase', '2')
-            if snack_purchase == '1':
+   
+    for row in bonus_data:
+            print(row)
+            snack_purchase = int(row.get('Snack Purchase', 2))
+            if snack_purchase == 1:
                 bonus_film_counts['Snack Purchases']['Yes'] += 1
             else:
                 bonus_film_counts['Snack Purchases']['No'] += 1
-
-            day_cinema = row.get('Day to Cinema', 'Monday')
-            bonus_film_counts['Days to Cinema'][day_cinema] += 1
+            
+            day_cinema = row.get('Day to Cinema', 'Monday',)
+            
 
           
         # Process book data
-        print(colorama.Fore.MAGENTA + "\nBook Survey Statistics:\n")
-        for row in book_data:
+
+    print(colorama.Fore.MAGENTA + "\nBook Survey Statistics:\n")
+    for row in book_data:
             reading_freq = int(row.get('Reading Frequency', 0))
             book_counts['Reading Frequency'].append(reading_freq)
 
-            convention_attendance = row.get('Book Convention Attendance',)
-            if convention_attendance == '1':
-                bonus_book_counts['Book Convention Attendance']['Yes'] += 1
-            else:
-                bonus_book_counts['Book Convention Attendance']['No'] += 1
-
             book_type = row.get('Book Type', 'Physical Books')
-            if book_type == '1':
+            if book_type == 1:
                 book_counts['Book Types']['Physical Books'] += 1
-            elif book_type == '2':
+            elif book_type == 2:
                 book_counts['Book Types']['E-books'] += 1
-            elif book_type == '3':
+            elif book_type == 3:
                 book_counts['Book Types']['Audiobooks'] += 1
             
-            cover_art = row.get('Cover Art Importance', 'Not at all Important')
-            if cover_art == '1':
+            cover_art = int(row.get('Cover Art Importance', 'Not at all Important'))
+            if cover_art == 1:
                 book_counts['Cover Art Importance']['Very Important'] += 1
-            elif cover_art == '2':
+            elif cover_art == 2:
                 book_counts['Cover Art Importance']['Somewhat Important'] += 1
-            elif cover_art == '3':
+            elif cover_art == 3:
                 book_counts['Cover Art Importance']['Not Very Important'] += 1
-            elif cover_art == '4':
+            elif cover_art == 4:
                 book_counts['Cover Art Importance']['Not at all Important'] += 1
 
-            cover_attr = row.get('Cover Attraction', 'Colorful')
-            if cover_attr == '1':
-                bonus_book_counts['Cover Attraction']['Colorful'] += 1
-            elif cover_attr == '2':
-                bonus_book_counts['Cover Attraction']['Interesting Picture'] += 1
-            elif cover_attr == '3':
-                bonus_book_counts['Cover Attraction']['Material'] += 1
-            elif cover_attr == '4':
-                bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
-
             reading_duration = row.get('Reading Duration', 'Under an hour')
-            if reading_duration == '1':
+            if reading_duration == 1:
                 book_counts['Reading Duration']['Under an hour'] += 1
-            elif reading_duration == '2':
+            elif reading_duration == 2:
                 book_counts['Reading Duration']['1-2 hours'] += 1
-            elif reading_duration == '3':
+            elif reading_duration == 3:
                 book_counts['Reading Duration']['2-4 hours'] += 1
-            elif reading_duration == '4':
+            elif reading_duration == 4:
                 book_counts['Reading Duration']['Over 4 hours'] += 1
             
-            book_genre = row.get('Book Genre',)
+            book_genre = int(row.get('Book Genre',))
             if book_genre == '1':
                 book_counts['Genres']['Fantasy'] += 1
             elif book_genre == '2':
@@ -866,27 +856,24 @@ def view_statistics():
                 book_counts['Genres']['Mystery'] += 1
 
         # Process bonus book data
+    for row in bonus_book_data:
       
-            convention_attendance = row.get('Book Convention Attendance',)
-            if convention_attendance == '1':
+            convention_attendance = row.get('Book Convention Attendance', '2')
+            if convention_attendance == 1:
                 bonus_book_counts['Book Convention Attendance']['Yes'] += 1
             else:
                 bonus_book_counts['Book Convention Attendance']['No'] += 1
 
-            cover_attr = row.get('Cover Attraction',)
-            if cover_attr == '1':
+            cover_attr = row.get('Cover Attraction', 'Colorful')
+            if cover_attr == 1:
                 bonus_book_counts['Cover Attraction']['Colorful'] += 1
-            elif cover_attr == '2':
+            elif cover_attr == 2:
                 bonus_book_counts['Cover Attraction']['Interesting Picture'] += 1
-            elif cover_attr == '3':
+            elif cover_attr == 3:
                 bonus_book_counts['Cover Attraction']['Material'] += 1
-            elif cover_attr == '4':
+            elif cover_attr == 4:
                 bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
 
-
-    except Exception as e:
-        print(colorama.Fore.RED + f"An error occurred: {e}")
-   
     # Print out statistics
     print(colorama.Fore.YELLOW + "\nFilm Survey Statistics:\n")
     print(f"Super Enthusiasm: {film_counts['Super Enthusiasm']}")
@@ -898,27 +885,28 @@ def view_statistics():
     print(f"Cinema Visits - Yes: {film_counts['Cinema Visits']['Yes']}, No: {film_counts['Cinema Visits']['No']}")
     print(f"Genres: {film_counts['Genres']}")
     
-    print(colorama.Fore.CYAN + "\nBonus Film Survey Statistics:\n")
+    print(colorama.Fore.YELLOW + "\nBonus Film Survey Statistics:\n")
     print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases']['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
     print(f"Days to Cinema: {bonus_film_counts['Days to Cinema']}")
     
-    print(colorama.Fore.CYAN + "\nBook Survey Statistics:\n")
+    print(colorama.Fore.YELLOW + "\nBook Survey Statistics:\n")
     print(f"Reading Frequency: {book_counts['Reading Frequency']}")
     print(f"Book Types: {book_counts['Book Types']}")
     print(f"Cover Art Importance: {book_counts['Cover Art Importance']}")
     print(f"Reading Duration: {book_counts['Reading Duration']}")
     print(f"Genres: {book_counts['Genres']}")
     
-    print(colorama.Fore.CYAN + "\nBonus Book Survey Statistics:\n")
+    print(colorama.Fore.YELLOW + "\nBonus Book Survey Statistics:\n")
     print(f"Book Convention Attendance - Yes: {bonus_book_counts['Book Convention Attendance']['Yes']}, No: {bonus_book_counts['Book Convention Attendance']['No']}")
     print(f"Cover Attraction: {bonus_book_counts['Cover Attraction']}")
 
     input("Please enter: ")
-    print(film_data)
+    
+    
    
 # Entry point of the script
-#welcome_message()
-#get_user_name_age()  # Collect the user’s name and age first
-#starting_page()
+welcome_message()
+get_user_name_age()  # Collect the user’s name and age first
+starting_page()
 view_statistics()
 
