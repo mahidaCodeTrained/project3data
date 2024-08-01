@@ -721,10 +721,8 @@ def view_statistics():
 
     book_counts = {
         'Reading Frequency': [],
-        'Book Convention Attendance': {'Yes': 0, 'No': 0},
         'Book Types': {'Physical Books': 0, 'E-books': 0, 'Audiobooks': 0},
         'Cover Art Importance': {'Very Important': 0, 'Somewhat Important': 0, 'Not Very Important': 0, 'Not at all Important': 0},
-        'Cover Attraction': {'Colorful': 0, 'Interesting Picture': 0, 'Material': 0, 'Comments on Cover': 0},
         'Reading Duration': {'Under an hour': 0, '1-2 hours': 0, '2-4 hours': 0, 'Over 4 hours': 0},
         'Genres': {'Fantasy': 0, 'Dystopian': 0, 'Romance Novel': 0, 'Horror': 0, 'Biography': 0, 'Historical Fiction': 0, 'Science Fiction': 0, 'Action': 0, 'Children’s': 0, 'Mystery': 0}
     }
@@ -779,13 +777,7 @@ def view_statistics():
                 film_counts['Little Enthusiasm'] += 1
             
             film_counts['Ratings'].append(int(row.get('Cinema Rating', 0)))
-            
-            snack_purchase = row.get('Snack Purchase', '2')
-            if snack_purchase == '1':
-                bonus_film_counts['Snack Purchases']['Yes'] += 1
-            else:
-                bonus_film_counts['Snack Purchases']['No'] += 1
-            
+           
             film_counts['Frequency of Watching'].append(int(row.get('How often you watch Movies?', 0)))
             
             cinema_visit = row.get('Cinema Visit', '2')
@@ -793,9 +785,6 @@ def view_statistics():
                 film_counts['Cinema Visits']['Yes'] += 1
             else:
                 film_counts['Cinema Visits']['No'] += 1
-            
-            day_cinema = row.get('Day to Cinema', 'Monday')
-            bonus_film_counts['Days to Cinema'][day_cinema] += 1
             
             genre = row.get('Genre',)
             if genre == '1':
@@ -814,9 +803,19 @@ def view_statistics():
                 film_counts['Genres']['Other'] += 1
 
         # Process bonus film data
-        for row in bonus_film_data:
-            genre = int(row.get('Genre', 0))
-            favorite_movie = row.get('Favorite Movie', '')
+
+            snack_purchase = row.get('Snack Purchase', '2')
+            if snack_purchase == '1':
+                bonus_film_counts['Snack Purchases']['Yes'] += 1
+            else:
+                bonus_film_counts['Snack Purchases']['No'] += 1
+            
+            day_cinema = row.get('Day to Cinema', 'Monday')
+            bonus_film_counts['Days to Cinema'][day_cinema] += 1
+
+            for row in bonus_film_data:
+                genre = int(row.get('Genre', 0))
+                favorite_movie = row.get('Favorite Movie', '')
             
             if genre == 1:
                 bonus_film_counts['Favorite Action Movie'].append(favorite_movie)
@@ -840,12 +839,6 @@ def view_statistics():
             reading_freq = int(row.get('Reading Frequency', 0))
             book_counts['Reading Frequency'].append(reading_freq)
             
-            convention_attendance = row.get('Book Convention Attendance',)
-            if convention_attendance == '1':
-                bonus_book_counts['Book Convention Attendance']['Yes'] += 1
-            else:
-                bonus_book_counts['Book Convention Attendance']['No'] += 1
-            
             book_type = row.get('Book Type', 'Physical Books')
             if book_type == '1':
                 book_counts['Book Types']['Physical Books'] += 1
@@ -863,16 +856,6 @@ def view_statistics():
                 book_counts['Cover Art Importance']['Not Very Important'] += 1
             elif cover_art == '4':
                 book_counts['Cover Art Importance']['Not at all Important'] += 1
-            
-            cover_attr = row.get('Cover Attraction', 'Colorful')
-            if cover_attr == '1':
-                bonus_book_counts['Cover Attraction']['Colorful'] += 1
-            elif cover_attr == '2':
-                bonus_book_counts['Cover Attraction']['Interesting Picture'] += 1
-            elif cover_attr == '3':
-                bonus_book_counts['Cover Attraction']['Material'] += 1
-            elif cover_attr == '4':
-                bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
             
             reading_duration = row.get('Reading Duration', 'Under an hour')
             if reading_duration == '1':
@@ -907,9 +890,27 @@ def view_statistics():
                 book_counts['Genres']['Mystery'] += 1
 
         # Process bonus book data
-        for row in bonus_book_data:
-            fav_book_genre = int(row.get('Genre', 0))
-            favorite_book = row.get('Favorite Book', '')
+          
+            convention_attendance = row.get('Book Convention Attendance',)
+            if convention_attendance == '1':
+                bonus_book_counts['Book Convention Attendance']['Yes'] += 1
+            else:
+                bonus_book_counts['Book Convention Attendance']['No'] += 1
+
+            cover_attr = row.get('Cover Attraction',)
+            if cover_attr == '1':
+                bonus_book_counts['Cover Attraction']['Colorful'] += 1
+            elif cover_attr == '2':
+                bonus_book_counts['Cover Attraction']['Interesting Picture'] += 1
+            elif cover_attr == '3':
+                bonus_book_counts['Cover Attraction']['Material'] += 1
+            elif cover_attr == '4':
+                bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
+
+                for row in bonus_book_data:
+                    fav_book_genre = int(row.get('Genre', 0))
+                    favorite_book = row.get('Favorite Book', '')
+                    
             
             if fav_book_genre == 1:
                 bonus_book_counts['Favorite Fantasy Book'].append(favorite_book)
