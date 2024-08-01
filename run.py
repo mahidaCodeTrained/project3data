@@ -814,8 +814,8 @@ def view_statistics():
             bonus_film_counts['Days to Cinema'][day_cinema] += 1
 
             for row in bonus_film_data:
-                genre = int(row.get('Genre', 0))
-                favorite_movie = row.get('Favorite Movie', '')
+                genre = int(row.get('Genre'))
+                favorite_movie = row.get('Favorite Movie')
             
             if genre == 1:
                 bonus_film_counts['Favorite Action Movie'].append(favorite_movie)
@@ -949,7 +949,7 @@ def view_statistics():
     print(f"Genres: {film_counts['Genres']}")
     
     print(colorama.Fore.CYAN + "\nBonus Film Survey Statistics:\n")
-    print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases']['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
+    print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases']['1']}, No: {bonus_film_counts['Snack Purchases']['2']}")
     print(f"Days to Cinema: {bonus_film_counts['Days to Cinema']}")
     for genre, movies in bonus_film_counts.items():
         print(f"{genre}: {movies}")
