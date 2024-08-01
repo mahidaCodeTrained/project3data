@@ -949,7 +949,7 @@ def view_statistics():
     print(f"Genres: {film_counts['Genres']}")
     
     print(colorama.Fore.CYAN + "\nBonus Film Survey Statistics:\n")
-    print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases']['1']}, No: {bonus_film_counts['Snack Purchases']['2']}")
+    print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases']['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
     print(f"Days to Cinema: {bonus_film_counts['Days to Cinema']}")
     for genre, movies in bonus_film_counts.items():
         print(f"{genre}: {movies}")
