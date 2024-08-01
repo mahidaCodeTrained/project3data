@@ -695,6 +695,7 @@ def view_statistics():
     clear()
     print(colorama.Fore.GREEN + "Fetching survey statistics...")
     time.sleep(2)
+    clear()
     
     # Initialize counts dictionaries
     film_counts = {
@@ -706,13 +707,13 @@ def view_statistics():
         'Average Watching': [],
         'Cinema Visits': {'Yes': 0, 'No': 0},
         'Genres': {'Action': 0, 'Drama': 0, 'Crime/Thriller': 0, 'Romance': 0, 'Comedy': 0, 'Sci-Fi': 0, 'Other': 0},
-        'Next Movie Watch Time': {'Today': 0, 'This Week': 0, 'This Month': 0, 'This Year': 0}  # Added for Question 6
+        'Next Movie Watch Time': {'Today': 0, 'This Week': 0, 'This Month': 0, 'This Year': 0}
        
     }
     bonus_film_counts = {
         
         'Snack Purchases': {'Yes': 0, 'No': 0},
-        'Days to Cinema': {'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'Friday': 0, 'Saturday': 0, 'Sunday': 0},
+        'Going Cinema': {'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'Friday': 0, 'Saturday': 0, 'Sunday': 0},
        
     }
 
@@ -724,6 +725,7 @@ def view_statistics():
         'Cover Attraction': {'Colorful': 0, 'Interesting Picture': 0, 'Material': 0, 'Comments on Cover': 0},
         'Reading Duration': {'Under an hour': 0, '1-2 hours': 0, '2-4 hours': 0, 'Over 4 hours': 0},
         'Genres': {'Fantasy': 0, 'Dystopian': 0, 'Romance Novel': 0, 'Horror': 0, 'Biography': 0, 'Historical Fiction': 0, 'Science Fiction': 0, 'Action': 0, 'Children’s': 0, 'Mystery': 0},
+        'Next Book Read Time': {'Today': 0, 'This Week': 0, 'This Month': 0, 'This Year': 0}
     }
     bonus_book_counts = {
         'Book Convention Attendance': {'Yes': 0, 'No': 0},
@@ -749,7 +751,7 @@ def view_statistics():
         # Process film data
         
     for row in film_data:
-            print(row)
+            
             enthusiasm = int(row.get('Enthusiasm', 0))
             if enthusiasm == 1:
                 film_counts['Super Enthusiasm'] += 1
@@ -771,19 +773,19 @@ def view_statistics():
                 film_counts['Cinema Visits']['No'] += 1
 
             genre = row.get('Genre', 0)
-            if genre == '1':
+            if genre == 1:
                 film_counts['Genres']['Action'] += 1
-            elif genre == '2':
+            elif genre == 2:
                 film_counts['Genres']['Drama'] += 1
-            elif genre == '3':
+            elif genre == 3:
                 film_counts['Genres']['Crime/Thriller'] += 1
-            elif genre == '4':
+            elif genre == 4:
                 film_counts['Genres']['Romance'] += 1
-            elif genre == '5':
+            elif genre == 5:
                 film_counts['Genres']['Comedy'] += 1
-            elif genre == '6':
+            elif genre == 6:
                 film_counts['Genres']['Sci-Fi'] += 1
-            elif genre == '7':
+            elif genre == 7:
                 film_counts['Genres']['Other'] += 1
 
             watch = row.get('When will you watch your next movie?', 0)
@@ -800,20 +802,33 @@ def view_statistics():
         # Process bonus film data
    
     for row in bonus_data:
-            print(row)
+            
             snack_purchase = int(row.get('Snack Purchase', 2))
             if snack_purchase == 1:
                 bonus_film_counts['Snack Purchases']['Yes'] += 1
             else:
                 bonus_film_counts['Snack Purchases']['No'] += 1
-            
-            day_cinema = row.get('Day to Cinema', 'Monday',)
-            
 
-          
+            cinema_day = row.get('Cinema Day', 0)
+            if cinema_day == 1:
+                bonus_film_counts['Going Cinema']['Monday'] += 1
+            elif cinema_day == 2:
+                bonus_film_counts['Going Cinema']['Tuesday'] += 1
+            elif cinema_day == 3:
+                bonus_film_counts['Going Cinema']['Wednesday'] += 1
+            elif cinema_day == 4:
+                bonus_film_counts['Going Cinema']['Thursday'] += 1
+            elif cinema_day == 5:
+                bonus_film_counts['Going Cinema']['Friday'] += 1
+            elif cinema_day == 6:
+                bonus_film_counts['Going Cinema']['Saturday'] += 1
+            elif cinema_day == 7:
+                bonus_film_counts['Going Cinema']['Sunday'] += 1
+            
+           
+        
         # Process book data
 
-    print(colorama.Fore.MAGENTA + "\nBook Survey Statistics:\n")
     for row in book_data:
             reading_freq = int(row.get('Reading Frequency', 0))
             book_counts['Reading Frequency'].append(reading_freq)
@@ -847,26 +862,36 @@ def view_statistics():
                 book_counts['Reading Duration']['Over 4 hours'] += 1
             
             book_genre = int(row.get('Book Genre',))
-            if book_genre == '1':
+            if book_genre == 1:
                 book_counts['Genres']['Fantasy'] += 1
-            elif book_genre == '2':
+            elif book_genre == 2:
                 book_counts['Genres']['Dystopian'] += 1
-            elif book_genre == '3':
+            elif book_genre == 3:
                 book_counts['Genres']['Romance Novel'] += 1
-            elif book_genre == '4':
+            elif book_genre == 4:
                 book_counts['Genres']['Horror'] += 1
-            elif book_genre == '5':
+            elif book_genre == 5:
                 book_counts['Genres']['Biography'] += 1
-            elif book_genre == '6':
+            elif book_genre == 6:
                 book_counts['Genres']['Historical Fiction'] += 1
-            elif book_genre == '7':
+            elif book_genre == 7:
                 book_counts['Genres']['Science Fiction'] += 1
-            elif book_genre == '8':
+            elif book_genre == 8:
                 book_counts['Genres']['Action'] += 1
-            elif book_genre == '9':
+            elif book_genre == 9:
                 book_counts['Genres']['Children’s'] += 1
-            elif book_genre == '10':
+            elif book_genre == 10:
                 book_counts['Genres']['Mystery'] += 1
+
+            read_book = row.get('When will you next read a book?', 0)
+            if read_book == 1:
+                book_counts['Next Book Read Time']['Today'] += 1
+            elif read_book == 2:
+                book_counts['Next Book Read Time']['This Week'] += 1
+            elif read_book == 3:
+                book_counts['Next Book Read Time']['This Month'] += 1
+            elif read_book == 4:
+                book_counts['Next Book Read Time']['This Year'] += 1
 
         # Process bonus book data
     for row in bonus_book_data:
@@ -892,27 +917,46 @@ def view_statistics():
     print(f"Super Enthusiasm: {film_counts['Super Enthusiasm']}")
     print(f"Moderate Enthusiasm: {film_counts['Moderate Enthusiasm']}")
     print(f"Mild Enthusiasm: {film_counts['Mild Enthusiasm']}")
-    print(f"Little Enthusiasm: {film_counts['Little Enthusiasm']}")
-    print(f"Average Cinema Rating in 2024: {sum(film_counts['Ratings']) / len(film_counts['Ratings']) if film_counts['Ratings'] else 0}")
-    print(f"Average Watching: {sum(film_counts['Average Watching']) / len(film_counts['Average Watching']) if film_counts['Average Watching'] else 0}")
-    print(f"Cinema Visits - Yes: {film_counts['Cinema Visits']['Yes']}, No: {film_counts['Cinema Visits']['No']}")
+    print(f"Little Enthusiasm: {film_counts['Little Enthusiasm']}\n")
+    
+
+    print(f"Average Cinema Rating in 2024: {sum(film_counts['Ratings'\
+ ]) / len(film_counts['Ratings']) if film_counts['Ratings'] else 0}")
+    print(f"Average Watching: {sum(film_counts['Average Watching'\
+ ]) / len(film_counts['Average Watching']) if film_counts['Average Watching'] else 0}\n")
+    
+    
+    print(f"Cinema Visits - Yes: {film_counts['Cinema Visits']['Yes']}, \
+ No: {film_counts['Cinema Visits']['No']}")
+    
+    
     print(f"Genres: {film_counts['Genres']}")
-    print(f"When will you watch your next movie? {film_counts['Next Movie Watch Time']}")
+    print(f"When will you watch your next movie?\
+ {film_counts['Next Movie Watch Time']}\n")
     
     
     print(colorama.Fore.YELLOW + "\nBonus Film Survey Statistics:\n")
-    print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases']['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
-    print(f"Days to Cinema: {bonus_film_counts['Days to Cinema']}")
+    print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases'\
+ ]['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
+    
+    print(f"What day do you go to Cinema: \
+ {bonus_film_counts['Going Cinema']}")
     
     print(colorama.Fore.YELLOW + "\nBook Survey Statistics:\n")
     print(f"Reading Frequency: {book_counts['Reading Frequency']}")
-    print(f"Book Types: {book_counts['Book Types']}")
+    print(f"Book Types: {book_counts['Book Types']}\n")
     print(f"Cover Art Importance: {book_counts['Cover Art Importance']}")
     print(f"Reading Duration: {book_counts['Reading Duration']}")
-    print(f"Genres: {book_counts['Genres']}")
+    print(f"Genres: {book_counts['Genres']}\n")
+    print(f"When will you read your next book?\
+  {book_counts['Next Book Read Time']}")
     
-    print(colorama.Fore.YELLOW + "\nBonus Book Survey Statistics:\n")
-    print(f"Book Convention Attendance - Yes: {bonus_book_counts['Book Convention Attendance']['Yes']}, No: {bonus_book_counts['Book Convention Attendance']['No']}")
+    print(colorama.Fore.GREEN + "\nBonus Book Survey Statistics:\n")
+    print(colorama.Fore.YELLOW + f"Book Convention Attendance - Yes: \
+  {bonus_book_counts['Book Convention Attendance']['Yes']}, No:\
+  {bonus_book_counts['Book Convention Attendance']['No']}")
+   
+   
     print(f"Cover Attraction: {bonus_book_counts['Cover Attraction']}")
 
     input("Please enter: ")
@@ -920,8 +964,8 @@ def view_statistics():
     
    
 # Entry point of the script
-#welcome_message()
-#get_user_name_age()  # Collect the user’s name and age first
-#starting_page()
+welcome_message()
+get_user_name_age()  # Collect the user’s name and age first
+starting_page()
 view_statistics()
 
