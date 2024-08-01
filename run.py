@@ -32,14 +32,14 @@ def welcome_message():
     time.sleep(5)
     clear()
     print("Welcome to the Film and Book Survey! \n")
-    time.sleep(5)
+    time.sleep(3)
     print("This Survey was created to understand interests")
     print("of film and book enthusiasts in 2024. The survey will")
     print("gain information and understanding from survey answers.\n")
-    time.sleep(6)
+    time.sleep(5)
     print("You will be asked a few questions either about film or books")
     print("depending on your preference so sit tight and complete the survey!\n")
-    time.sleep(6)
+    time.sleep(5)
     clear()
 
 """
@@ -678,26 +678,282 @@ def end_survey_book():
     view_statistics()
 
 
+
 def view_statistics():
     clear()
-    print("Welcome to the statistics.")
+    print(colorama.Fore.GREEN + "Fetching survey statistics...")
+    time.sleep(2)
     
-    # Make sure user_choice is defined or passed correctly
-    if user_choice == '1':
-        print("Displaying Film Survey Stats: ")
-        time.sleep(2)
-        worksheet = SHEET.worksheet('film')
-        all_values = worksheet.get_all_values()
-        print(all_values)
+    # Initialize counts dictionaries
+    film_counts = {
+        'Super Enthusiasm': 0,
+        'Moderate Enthusiasm': 0,
+        'Mild Enthusiasm': 0,
+        'Little Enthusiasm': 0,
+        'Ratings': [],
+        'Snack Purchases': {'Yes': 0, 'No': 0},
+        'Frequency of Watching': [],
+        'Cinema Visits': {'Yes': 0, 'No': 0},
+        'Days to Cinema': {'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'Friday': 0, 'Saturday': 0, 'Sunday': 0},
+        'Genres': {'Action': 0, 'Drama': 0, 'Crime/Thriller': 0, 'Romance': 0, 'Comedy': 0, 'Sci-Fi': 0, 'Other': 0}
+    }
 
+    bonus_film_counts = {
+        'Favorite Action Movie': [],
+        'Favorite Drama Movie': [],
+        'Favorite Crime Movie': [],
+        'Favorite Romance Movie': [],
+        'Favorite Comedy Movie': [],
+        'Favorite Sci-Fi Movie': [],
+        'Favorite Other Movie': []
+    }
 
+    book_counts = {
+        'Reading Frequency': [],
+        'Book Convention Attendance': {'Yes': 0, 'No': 0},
+        'Book Types': {'Physical Books': 0, 'E-books': 0, 'Audiobooks': 0},
+        'Cover Art Importance': {'Very Important': 0, 'Somewhat Important': 0, 'Not Very Important': 0, 'Not at all Important': 0},
+        'Cover Attraction': {'Colorful': 0, 'Interesting Picture': 0, 'Material': 0, 'Comments on Cover': 0},
+        'Reading Duration': {'Under an hour': 0, '1-2 hours': 0, '2-4 hours': 0, 'Over 4 hours': 0},
+        'Genres': {'Fantasy': 0, 'Dystopian': 0, 'Romance Novel': 0, 'Horror': 0, 'Biography': 0, 'Historical Fiction': 0, 'Science Fiction': 0, 'Action': 0, 'Children’s': 0, 'Mystery': 0}
+    }
+
+    bonus_book_counts = {
+        'Favorite Fantasy Book': [],
+        'Favorite Dystopian Book': [],
+        'Favorite Romance Novel': [],
+        'Favorite Horror Book': [],
+        'Favorite Biography': [],
+        'Favorite Historical Fiction': [],
+        'Favorite Science Fiction Book': [],
+        'Favorite Action Book': [],
+        'Favorite Children’s Book': [],
+        'Favorite Mystery Book': []
+    }
+
+    try:
+        # Fetch film survey data
+        film_worksheet = SHEET.worksheet("film")
+        film_data = film_worksheet.get_all_records()
+
+        # Fetch bonus film data
+        bonus_film_worksheet = SHEET.worksheet("bonus")
+        bonus_film_data = bonus_film_worksheet.get_all_records()
         
+        # Fetch book survey data
+        book_worksheet = SHEET.worksheet("book")
+        book_data = book_worksheet.get_all_records()
 
+        # Fetch bonus book data
+        bonus_book_worksheet = SHEET.worksheet("bookbonus")
+        bonus_book_data = bonus_book_worksheet.get_all_records()
+
+        # Process film data
+        print(colorama.Fore.MAGENTA + "\nFilm Survey Statistics:\n")
+
+        for row in film_data:
+            enthusiasm = int(row.get('Enthusiasm', 0))
+            if enthusiasm == 1:
+                film_counts['Super Enthusiasm'] += 1
+            elif enthusiasm == 2:
+                film_counts['Moderate Enthusiasm'] += 1
+            elif enthusiasm == 3:
+                film_counts['Mild Enthusiasm'] += 1
+            elif enthusiasm == 4:
+                film_counts['Little Enthusiasm'] += 1
+            
+            film_counts['Ratings'].append(int(row.get('Cinema Rating', 0)))
+            
+            snack_purchase = row.get('Snack Purchase', 'No')
+            if snack_purchase == 'Yes':
+                film_counts['Snack Purchases']['Yes'] += 1
+            else:
+                film_counts['Snack Purchases']['No'] += 1
+            
+            film_counts['Frequency of Watching'].append(int(row.get('Frequency of Watching', 0)))
+            
+            cinema_visit = row.get('Cinema Visit', 'No')
+            if cinema_visit == 'Yes':
+                film_counts['Cinema Visits']['Yes'] += 1
+            else:
+                film_counts['Cinema Visits']['No'] += 1
+            
+            day_cinema = row.get('Day to Cinema', 'Monday')
+            film_counts['Days to Cinema'][day_cinema] += 1
+            
+            genre = row.get('Genre', 'Other')
+            if genre == '1':
+                film_counts['Genres']['Action'] += 1
+            elif genre == '2':
+                film_counts['Genres']['Drama'] += 1
+            elif genre == '3':
+                film_counts['Genres']['Crime/Thriller'] += 1
+            elif genre == '4':
+                film_counts['Genres']['Romance'] += 1
+            elif genre == '5':
+                film_counts['Genres']['Comedy'] += 1
+            elif genre == '6':
+                film_counts['Genres']['Sci-Fi'] += 1
+            elif genre == '7':
+                film_counts['Genres']['Other'] += 1
+
+        # Process bonus film data
+        for row in bonus_film_data:
+            genre = int(row.get('Genre', 0))
+            favorite_movie = row.get('Favorite Movie', '')
+            
+            if genre == 1:
+                bonus_film_counts['Favorite Action Movie'].append(favorite_movie)
+            elif genre == 2:
+                bonus_film_counts['Favorite Drama Movie'].append(favorite_movie)
+            elif genre == 3:
+                bonus_film_counts['Favorite Crime Movie'].append(favorite_movie)
+            elif genre == 4:
+                bonus_film_counts['Favorite Romance Movie'].append(favorite_movie)
+            elif genre == 5:
+                bonus_film_counts['Favorite Comedy Movie'].append(favorite_movie)
+            elif genre == 6:
+                bonus_film_counts['Favorite Sci-Fi Movie'].append(favorite_movie)
+            elif genre == 7:
+                bonus_film_counts['Favorite Other Movie'].append(favorite_movie)
+
+        # Process book data
+        print(colorama.Fore.MAGENTA + "\nBook Survey Statistics:\n")
+
+        for row in book_data:
+            reading_freq = int(row.get('Reading Frequency', 0))
+            book_counts['Reading Frequency'].append(reading_freq)
+            
+            convention_attendance = row.get('Book Convention Attendance', 'No')
+            if convention_attendance == 'Yes':
+                book_counts['Book Convention Attendance']['Yes'] += 1
+            else:
+                book_counts['Book Convention Attendance']['No'] += 1
+            
+            book_type = row.get('Book Type', 'Physical Books')
+            if book_type == '1':
+                book_counts['Book Types']['Physical Books'] += 1
+            elif book_type == '2':
+                book_counts['Book Types']['E-books'] += 1
+            elif book_type == '3':
+                book_counts['Book Types']['Audiobooks'] += 1
+            
+            cover_art = row.get('Cover Art Importance', 'Not at all Important')
+            if cover_art == '1':
+                book_counts['Cover Art Importance']['Very Important'] += 1
+            elif cover_art == '2':
+                book_counts['Cover Art Importance']['Somewhat Important'] += 1
+            elif cover_art == '3':
+                book_counts['Cover Art Importance']['Not Very Important'] += 1
+            elif cover_art == '4':
+                book_counts['Cover Art Importance']['Not at all Important'] += 1
+            
+            cover_attr = row.get('Cover Attraction', 'Colorful')
+            if cover_attr == '1':
+                book_counts['Cover Attraction']['Colorful'] += 1
+            elif cover_attr == '2':
+                book_counts['Cover Attraction']['Interesting Picture'] += 1
+            elif cover_attr == '3':
+                book_counts['Cover Attraction']['Material'] += 1
+            elif cover_attr == '4':
+                book_counts['Cover Attraction']['Comments on Cover'] += 1
+            
+            reading_duration = row.get('Reading Duration', 'Under an hour')
+            if reading_duration == '1':
+                book_counts['Reading Duration']['Under an hour'] += 1
+            elif reading_duration == '2':
+                book_counts['Reading Duration']['1-2 hours'] += 1
+            elif reading_duration == '3':
+                book_counts['Reading Duration']['2-4 hours'] += 1
+            elif reading_duration == '4':
+                book_counts['Reading Duration']['Over 4 hours'] += 1
+            
+            genre = row.get('Genre', 'Fantasy')
+            if genre == '1':
+                book_counts['Genres']['Fantasy'] += 1
+            elif genre == '2':
+                book_counts['Genres']['Dystopian'] += 1
+            elif genre == '3':
+                book_counts['Genres']['Romance Novel'] += 1
+            elif genre == '4':
+                book_counts['Genres']['Horror'] += 1
+            elif genre == '5':
+                book_counts['Genres']['Biography'] += 1
+            elif genre == '6':
+                book_counts['Genres']['Historical Fiction'] += 1
+            elif genre == '7':
+                book_counts['Genres']['Science Fiction'] += 1
+            elif genre == '8':
+                book_counts['Genres']['Action'] += 1
+            elif genre == '9':
+                book_counts['Genres']['Children’s'] += 1
+            elif genre == '10':
+                book_counts['Genres']['Mystery'] += 1
+
+        # Process bonus book data
+        for row in bonus_book_data:
+            genre = int(row.get('Genre', 0))
+            favorite_book = row.get('Favorite Book', '')
+            
+            if genre == 1:
+                bonus_book_counts['Favorite Fantasy Book'].append(favorite_book)
+            elif genre == 2:
+                bonus_book_counts['Favorite Dystopian Book'].append(favorite_book)
+            elif genre == 3:
+                bonus_book_counts['Favorite Romance Novel'].append(favorite_book)
+            elif genre == 4:
+                bonus_book_counts['Favorite Horror Book'].append(favorite_book)
+            elif genre == 5:
+                bonus_book_counts['Favorite Biography'].append(favorite_book)
+            elif genre == 6:
+                bonus_book_counts['Favorite Historical Fiction'].append(favorite_book)
+            elif genre == 7:
+                bonus_book_counts['Favorite Science Fiction Book'].append(favorite_book)
+            elif genre == 8:
+                bonus_book_counts['Favorite Action Book'].append(favorite_book)
+            elif genre == 9:
+                bonus_book_counts['Favorite Children’s Book'].append(favorite_book)
+            elif genre == 10:
+                bonus_book_counts['Favorite Mystery Book'].append(favorite_book)
+
+    except Exception as e:
+        print(colorama.Fore.RED + f"An error occurred: {e}")
+
+    # Print out statistics
+    print(colorama.Fore.CYAN + "\nFilm Survey Statistics:\n")
+    print(f"Super Enthusiasm: {film_counts['Super Enthusiasm']}")
+    print(f"Moderate Enthusiasm: {film_counts['Moderate Enthusiasm']}")
+    print(f"Mild Enthusiasm: {film_counts['Mild Enthusiasm']}")
+    print(f"Little Enthusiasm: {film_counts['Little Enthusiasm']}")
+    print(f"Average Cinema Rating: {sum(film_counts['Ratings']) / len(film_counts['Ratings']) if film_counts['Ratings'] else 0}")
+    print(f"Snack Purchases - Yes: {film_counts['Snack Purchases']['Yes']}, No: {film_counts['Snack Purchases']['No']}")
+    print(f"Frequency of Watching: {film_counts['Frequency of Watching']}")
+    print(f"Cinema Visits - Yes: {film_counts['Cinema Visits']['Yes']}, No: {film_counts['Cinema Visits']['No']}")
+    print(f"Days to Cinema: {film_counts['Days to Cinema']}")
+    print(f"Genres: {film_counts['Genres']}")
+    
+    print(colorama.Fore.CYAN + "\nBonus Film Survey Statistics:\n")
+    for genre, movies in bonus_film_counts.items():
+        print(f"{genre}: {movies}")
+
+    print(colorama.Fore.CYAN + "\nBook Survey Statistics:\n")
+    print(f"Reading Frequency: {book_counts['Reading Frequency']}")
+    print(f"Book Convention Attendance - Yes: {book_counts['Book Convention Attendance']['Yes']}, No: {book_counts['Book Convention Attendance']['No']}")
+    print(f"Book Types: {book_counts['Book Types']}")
+    print(f"Cover Art Importance: {book_counts['Cover Art Importance']}")
+    print(f"Cover Attraction: {book_counts['Cover Attraction']}")
+    print(f"Reading Duration: {book_counts['Reading Duration']}")
+    print(f"Genres: {book_counts['Genres']}")
+    
+    print(colorama.Fore.CYAN + "\nBonus Book Survey Statistics:\n")
+    for genre, books in bonus_book_counts.items():
+        print(f"{genre}: {books}")
 
 # Entry point of the script
 welcome_message()
 get_user_name_age()  # Collect the user’s name and age first
 starting_page()
+
 
 
 
