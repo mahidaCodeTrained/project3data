@@ -66,7 +66,7 @@ def get_user_name_age():
                     print(colorama.Fore.GREEN + "Thank you.")
                     # Append user name and age to the "names" worksheet
                     user_name_worksheet = SHEET.worksheet("names")
-                    user_name_worksheet.append_row([user_name, user_age])
+                    user_name_worksheet.append_row([user_name, int(user_age)])
                     break
                 else:
                     print(colorama.Fore.RED + "Invalid age.")
