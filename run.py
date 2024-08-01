@@ -28,8 +28,8 @@ def clear():
         os.system('clear')
 
 def welcome_message():
-    print(colorama.Fore.GREEN + "Program taking shape in 5....4....3....2....1....")
-    time.sleep(5)
+    print(colorama.Fore.GREEN + "Program Activated!")
+    time.sleep(3)
     clear()
     print("Welcome to the Film and Book Survey! \n")
     time.sleep(3)
@@ -88,14 +88,14 @@ on their answer to the question.
 """   
 
 def starting_page():
-    print(Fore.MAGENTA + "To begin this survey we need to know if you")
+    print(colorama.Fore.GREEN + "To begin this survey we need to know if you")
     print("are a moviegoer or a bookreader so we can tailor your experience!\n")
     time.sleep(3)
-    print(Fore.MAGENTA + "1. Moviegoer")
-    print(Fore.MAGENTA + "2. Bookreader")
+    print(colorama.Fore.YELLOW + "1. Moviegoer")
+    print(colorama.Fore.YELLOW + "2. Bookreader")
     
     while True:
-        user_choice = input(Fore.YELLOW + "Enter your choice from option 1, or option 2: ")
+        user_choice = input(colorama.Fore.YELLOW + "Enter your choice from option 1, or option 2: ")
         
         if user_choice == '1':
             film_survey()
@@ -106,7 +106,7 @@ def starting_page():
             clear()
             break
         else:
-            print(Fore.RED + "Invalid choice. Please enter either 1 or 2.")
+            print(colorama.Fore.RED + "Invalid choice. Please enter either 1 or 2.")
         
 
 """
@@ -884,7 +884,7 @@ def view_statistics():
             elif reading_duration == '4':
                 book_counts['Reading Duration']['Over 4 hours'] += 1
             
-            genre = row.get('Book Genre',)
+            book_genre = row.get('Book Genre',)
             if book_genre == '1':
                 book_counts['Genres']['Fantasy'] += 1
             elif book_genre == '2':
