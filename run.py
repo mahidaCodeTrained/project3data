@@ -953,17 +953,3 @@ def view_statistics():
 welcome_message()
 get_user_name_age()  # Collect the user’s name and age first
 starting_page()
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-   
-   
