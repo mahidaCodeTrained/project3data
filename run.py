@@ -88,19 +88,26 @@ on their answer to the question.
 """   
 
 def starting_page():
-    print(colorama.Fore.MAGENTA + "To begin this survey we need to know if you")
+    print(Fore.MAGENTA + "To begin this survey we need to know if you")
     print("are a moviegoer or a bookreader so we can tailor your experience!\n")
     time.sleep(3)
-    print(colorama.Fore.MAGENTA + "1. Moviegoer")
-    print(colorama.Fore.MAGENTA + "2. Bookreader")
-    user_choice = input(colorama.Fore.YELLOW + "Enter your choice from option 1, or option 2: ")
-
-    if user_choice == '1':
-        film_survey()
-        clear()
-    elif user_choice == '2':
-        book_survey()  # Placeholder for book survey function
-        clear()
+    print(Fore.MAGENTA + "1. Moviegoer")
+    print(Fore.MAGENTA + "2. Bookreader")
+    
+    while True:
+        user_choice = input(Fore.YELLOW + "Enter your choice from option 1, or option 2: ")
+        
+        if user_choice == '1':
+            film_survey()
+            clear()
+            break
+        elif user_choice == '2':
+            book_survey()
+            clear()
+            break
+        else:
+            print(Fore.RED + "Invalid choice. Please enter either 1 or 2.")
+        
 
 """
 The film_survey function is designed for users who chose the "Moviergoer" option in the starting_page function
