@@ -175,7 +175,13 @@ This repository can be cloned by following these steps.
 > Enjoy.
 
 ## Credits
+- This will credit everything that I used for creating and having the idea behind tackling this project which is to build a Rock Paper Scissors Game.
 
+| Source | Location | Notes |
+| --- | --- | --- |
+| [t0tacci0's GitHub repo](https://github.com/t0tacci0/CodeSurvey/tree/main) | run.py | This repository gave me an idea on how a python survey should be structured |
+| [W3Schools](https://www.w3schools.com/python/python_functions.asp) | run.py | This website gave me additional information on how Python functions work |
+| [Alan Bushell's GitHub Repo](https://github.com/Alan-Bushell/blackjack) | README.md, TESTING.md | This gave me alot of knowledge on how to structure certain elements of a README.md file for as python project.
 
 ##  Acknowledgements
 - I would like to thank my friends and family for supporting me on this journey at Code Institute. 
