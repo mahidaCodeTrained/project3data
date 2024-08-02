@@ -179,7 +179,7 @@ This repository can be cloned by following these steps.
 > Enjoy.
 
 ## Credits
-- This will credit everything that I used for creating and having the idea behind tackling this project which is to build a Rock Paper Scissors Game.
+- This will credit everything that I used for creating and having the idea behind tackling this project which is to create a functioning survey using Python that will recieve data from the user and also return data.
 
 | Source | Location | Notes |
 | --- | --- | --- |
