@@ -63,5 +63,13 @@ Although Lighthouse isn't really a huge testing for this project, I've decided t
 | Bonus Question 3 | ![screenshot](documentation/testing/filmbonusq3.png) | ![screenshot](documentation/testing/bookbonusq3.png) | There aren't any errors in this because this data although collected is not displayed and is a free entry for the user to tell what their favourite film is. |
 | Question 6 | ![screenshot](documentation/testing/filmq6-invalid.png) | ![screenshot](documentation/testing/bookq6-invalid.png) | If there is a wrong input then the error message pops up. |
 
+- The reason that bonus data 3 is not shown back to the user is simply for the user experience. the amount of entries that are placed will flood the statistics making it hard to read and adding too much visual clutter where it really is not needed. The crucial data the data that is analytical is processed and is delievered to the user that's the data that matter, that's the data that counts. 
+
+- There are additional errors catching statements.
+![screenshot](documentation/features/age-errorprompt-features.png)
+![screenshot](documentation/features/name-errorprompt-features.png)
+![screenshot](documentation/testing/finalmenu-test.png)
+
+
 
 
