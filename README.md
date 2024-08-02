@@ -178,3 +178,7 @@ This repository can be cloned by following these steps.
 
 
 ##  Acknowledgements
+- I would like to thank my friends and family for supporting me on this journey at Code Institute. 
+- I would like to thank my Code Institute mentor [Alan Bushell](https://github.com/Alan-Bushell) who has always been there to support me through all of the projects that I have completed thus far. 
+- I would also like to my stand in mentor [Tim Nelson](https://github.com/TravelTimN) who helped me through some problems that I had with my code and really made me understand the issues.
+- I would like to give a thanks to the Tutor Support team at Code Institute. We spent alot of minutes even hours trying to solve errors and bugs within the code. The code was extensive and very long for a project 3. Almost everytime the teama at Tutor Support couldn't solve or help me but you gave me the best motivation by stating that "Remember, you know your code better than anybody and what you would like to do with it so I'm sure you will find a fix to your issues". This quote helped me greatly and picked me up when I was struggling and stressing. Once again a big thank you to all these people. 
