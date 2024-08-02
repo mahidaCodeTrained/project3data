@@ -820,40 +820,111 @@ def view_statistics():
 
     # Initialize counts dictionaries
     film_counts = {
-        'Super Enthusiasm': 0,
-        'Moderate Enthusiasm': 0,
-        'Mild Enthusiasm': 0,
-        'Little Enthusiasm': 0,
-        'Ratings': [],
-        'Average Watching': [],
-        'Cinema Visits': {'Yes': 0, 'No': 0},
-        'Genres': {'Action': 0, 'Drama': 0, 'Crime/Thriller': 0, 'Romance': 0, 'Comedy': 0, 'Sci-Fi': 0, 'Other': 0},
-        'Next Movie Watch Time': {'Today': 0, 'This Week': 0, 'This Month': 0, 'This Year': 0}
-
+    'Super Enthusiasm': 0,
+    'Moderate Enthusiasm': 0,
+    'Mild Enthusiasm': 0,
+    'Little Enthusiasm': 0,
+    'Ratings': [],
+    'Average Watching': [],
+    'Cinema Visits': {
+        'Yes': 0,
+        'No': 0
+    },
+    'Genres': {
+        'Action': 0,
+        'Drama': 0,
+        'Crime/Thriller': 0,
+        'Romance': 0,
+        'Comedy': 0,
+        'Sci-Fi': 0,
+        'Other': 0
+    },
+    'Next Movie Watch Time': {
+        'Today': 0,
+        'This Week': 0,
+        'This Month': 0,
+        'This Year': 0
     }
+}
+
     bonus_film_counts = {
-
-        'Snack Purchases': {'Yes': 0, 'No': 0},
-        'Going Cinema': {'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'Friday': 0, 'Saturday': 0, 'Sunday': 0},
-
+    'Snack Purchases': {
+        'Yes': 0,
+        'No': 0
+    },
+    'Going Cinema': {
+        'Monday': 0,
+        'Tuesday': 0,
+        'Wednesday': 0,
+        'Thursday': 0,
+        'Friday': 0,
+        'Saturday': 0,
+        'Sunday': 0
     }
+}
 
     book_counts = {
-        'Reading Frequency': [],
-        'Book Convention Attendance': {'Yes': 0, 'No': 0},
-        'Book Types': {'Physical Books': 0, 'E-books': 0, 'Audiobooks': 0},
-        'Cover Art Importance': {'Very Important': 0, 'Somewhat Important': 0, 'Not Very Important': 0, 'Not at all Important': 0},
-        'Cover Attraction': {'Colorful': 0, 'Interesting Picture': 0, 'Material': 0, 'Comments on Cover': 0},
-        'Reading Duration': {'Under an hour': 0, '1-2 hours': 0, '2-4 hours': 0, 'Over 4 hours': 0},
-        'Genres': {'Fantasy': 0, 'Dystopian': 0, 'Romance Novel': 0, 'Horror': 0, 'Biography': 0, 'Historical Fiction': 0, 'Science Fiction': 0, 'Action': 0, 'Children’s': 0, 'Mystery': 0},
-        'Next Book Read Time': {'Today': 0, 'This Week': 0, 'This Month': 0, 'This Year': 0}
+    'Reading Frequency': [],
+    'Book Convention Attendance': {
+        'Yes': 0,
+        'No': 0
+    },
+    'Book Types': {
+        'Physical Books': 0,
+        'E-books': 0,
+        'Audiobooks': 0
+    },
+    'Cover Art Importance': {
+        'Very Important': 0,
+        'Somewhat Important': 0,
+        'Not Very Important': 0,
+        'Not at all Important': 0
+    },
+    'Cover Attraction': {
+        'Colorful': 0,
+        'Interesting Picture': 0,
+        'Material': 0,
+        'Comments on Cover': 0
+    },
+    'Reading Duration': {
+        'Under an hour': 0,
+        '1-2 hours': 0,
+        '2-4 hours': 0,
+        'Over 4 hours': 0
+    },
+    'Genres': {
+        'Fantasy': 0,
+        'Dystopian': 0,
+        'Romance Novel': 0,
+        'Horror': 0,
+        'Biography': 0,
+        'Historical Fiction': 0,
+        'Science Fiction': 0,
+        'Action': 0,
+        'Children’s': 0,
+        'Mystery': 0
+    },
+    'Next Book Read Time': {
+        'Today': 0,
+        'This Week': 0,
+        'This Month': 0,
+        'This Year': 0
     }
+}
+
     bonus_book_counts = {
-        'Book Convention Attendance': {'Yes': 0, 'No': 0},
-
-        'Cover Attraction': {'Colorful': 0, 'Interesting Picture': 0, 'Material': 0, 'Comments on Cover': 0},
-
+    'Book Convention Attendance': {
+        'Yes': 0,
+        'No': 0
+    },
+    'Cover Attraction': {
+        'Colorful': 0,
+        'Interesting Picture': 0,
+        'Material': 0,
+        'Comments on Cover': 0
     }
+}
+
 
     # try:
 
