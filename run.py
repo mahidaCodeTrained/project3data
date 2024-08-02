@@ -86,7 +86,7 @@ def get_user_name_age():
             print(colorama.Fore.RED + "Invalid name.")
             print(colorama.Fore.RED + "Please enter a valid name with only\
  letters.")
-    print(colorama.Fore.GREEN + f"Hello, {user_name}! \
+    print(colorama.Fore.GREEN + f"Hello, {user_name}!\
  Preparing the Code Survey.\n")
     time.sleep(4)
     clear()
@@ -113,7 +113,7 @@ def starting_page():
     print(colorama.Fore.YELLOW + "2. Bookreader")
 
     while True:
-        user_choice = input(colorama.Fore.YELLOW + "Enter your choice \
+        user_choice = input(colorama.Fore.YELLOW + "Enter your choice\
  from option 1, or option 2: ")
 
         if user_choice == '1':
@@ -125,7 +125,7 @@ def starting_page():
             clear()
             break
         else:
-            print(colorama.Fore.RED + "Invalid choice. Please enter \
+            print(colorama.Fore.RED + "Invalid choice. Please enter\
  either 1 or 2.")
 
 
@@ -141,7 +141,7 @@ appending the data in rows.
 
 def film_survey():
     if user_name is None:
-        print(colorama.Fore.RED + "Error: User name not set. \
+        print(colorama.Fore.RED + "Error: User name not set.\
  Please start the survey again.")
         return
 
@@ -313,9 +313,8 @@ def film_survey():
         print(colorama.Fore.CYAN + "7. Sunday")
 
         day_cinema = input("Please submit your answer now: ")
-        day_cinema = int(day_cinema)
 
-        if day_cinema in [1, 2, 3, 4, 5, 6, 7]:
+        if day_cinema in ['1', '2', '3', '4', '5', '6', '7']:
             bonus_data.append(day_cinema)
             print("We have collected this data, thank you and\
  on to the next question!")
@@ -629,8 +628,7 @@ def book_survey():
         print(colorama.Fore.GREEN + "Please select an option through (1-4)\
  using the numbers (1-4)")
         attract = input("Please submit your answer: ")
-        attract = int(attract)
-        if attract in [1, 2, 3, 4]:
+        if attract in ['1', '2', '3', '4']:
             bonus_book_data.append(attract)
             print("We have collected this data, thank you and on to the\
  next question!")
@@ -699,7 +697,7 @@ def book_survey():
             break
         else:
             print(colorama.Fore.RED + "Sorry but this entry is invalid.")
-            print(colorama.Fore.RED + "You must select a number from 1-7")
+            print(colorama.Fore.RED + "You must select a number from 1-10")
             time.sleep(2)
             clear()
 
@@ -753,8 +751,7 @@ def book_survey():
         print(colorama.Fore.YELLOW + "4. This Year")
 
         reading = input("Please enter your answer now: ")
-        reading = int(reading)
-        if reading in [1, 2, 3, 4]:
+        if reading in ['1', '2', '3', '4']:
             book_data.append(reading)
             print(f"Thank you for answering {user_name}.")
             time.sleep(2)
@@ -1010,7 +1007,7 @@ def view_statistics():
         else:
             bonus_film_counts['Snack Purchases']['No'] += 1
 
-        cinema_day = row.get('Cinema Day', 0)
+        cinema_day = int(row.get('Cinema Day', 0))
         if cinema_day == 1:
             bonus_film_counts['Going Cinema']['Monday'] += 1
         elif cinema_day == 2:
@@ -1062,7 +1059,7 @@ def view_statistics():
         elif reading_duration == 4:
             book_counts['Reading Duration']['Over 4 hours'] += 1
 
-        book_genre = int(row.get('Book Genre',))
+        book_genre = (row.get('Book Genre',))
         if book_genre == 1:
             book_counts['Genres']['Fantasy'] += 1
         elif book_genre == 2:
