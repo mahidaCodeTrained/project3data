@@ -1170,7 +1170,7 @@ def view_statistics():
             time.sleep(3)
             clear()
             exit()  # To exit the program.
-
+            clear()
 
 
 # Entry point of the script
