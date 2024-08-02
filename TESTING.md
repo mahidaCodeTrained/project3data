@@ -16,6 +16,8 @@ Return to the [README.md](README.md) file.
 
 - [Manual Testing](#manual-testing)
 
+- [User Validation Testing](#user-validation-testing)
+
 - [Bugs](#bugs)
 
 </details>
@@ -95,4 +97,27 @@ Although Lighthouse isn't really a huge testing for this project, I've decided t
 - These questions are for both the film and book survey. 
 - To make sure that repitition is at a low I have decided to just add it only once instead of twice for both the film survey and book survey. However, the statement is meant to be for both. 
 
+## User Validation Testing
 
+| Question | Film | Book | Notes |
+| :---: | :---: | :---: | :---: |
+| Question 1 | ![screenshot](documentation/testing/filmq1-success.png) | ![screenshot](documentation/testing/bookq1-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+| Bonus Question 1 | ![screenshot](documentation/testing/filmbonusq1-success.png) | ![screenshot](documentation/testing/bookbonusq1-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+| Question 2 | ![screenshot](documentation/testing/filmq2-success.png) | ![screenshot](documentation/testing/bookq2-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+| Question 3 | ![screenshot](documentation/testing/filmq3-success.png) | ![screenshot](documentation/testing/bookq3-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+| Bonus Question 2 | ![screenshot](documentation/testing/filmbonusq2-success.png) | ![screenshot](documentation/testing/bookbonusq2-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+| Question 4 | ![screenshot](documentation/testing/filmq4-success.png) | ![screenshot](documentation/testing/bookq4-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+| Question 5 | ![screenshot](documentation/testing/filmq5-success.png) | ![screenshot](documentation/testing/bookq5-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+| Bonus Question 3 | ![screenshot](documentation/testing/filmbonusq3-success.png) | ![screenshot](documentation/testing/bookbonusq3-success.png) | These are always successful due to any input being allowed in this. It's mainly for creative purposes and allows the user to engage and think. |
+| Question 6 | ![screenshot](documentation/testing/filmq6-success.png) | ![screenshot](documentation/testing/bookq6-success.png) | This showcases that the inputs are validated and the correct submission is bringing about a prompt indiciating that the question is completed and data is being stored. |
+
+
+## Bugs 
+
+- This project has encountered a few bugs from it's inception to now. The main bugs that the project had have been eradicated. I will detail them now.
+1. There was a bug with three different data collection questions with the variables being assigned an int(append) this caused an issue within the terminal when users tried to submit their answers.
+> Of course the answers that were numbers between lets say 1-4 for a question that demanded an answer between 1-4 passed through the question without an issue. However, the problem arose when a user inputted a string inside the input field it completely shut down the entire project. I caught three instances of this bug and I have exterminated it. 
+
+2. There was another bug that didn't allow data to be retrieved from my google sheet due to the way my data recovery process in view_statistics() was functioned. It ended up making all counts go into only one bracket for the data. I have annihilated this bug. 
+
+- I will be on the lookout for anymore bugs that can destroy the experience or the functionality of the project but as of now those are the only bugs encountered. 
