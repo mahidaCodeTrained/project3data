@@ -66,6 +66,7 @@ Although Lighthouse isn't really a huge testing for this project, I've decided t
 - The reason that bonus data 3 is not shown back to the user is simply for the user experience. the amount of entries that are placed will flood the statistics making it hard to read and adding too much visual clutter where it really is not needed. The crucial data the data that is analytical is processed and is delievered to the user that's the data that matter, that's the data that counts. 
 
 - There are additional errors catching statements.
+
 ![screenshot](documentation/features/age-errorprompt-features.png)
 ![screenshot](documentation/features/name-errorprompt-features.png)
 ![screenshot](documentation/testing/finalmenu-test.png)
