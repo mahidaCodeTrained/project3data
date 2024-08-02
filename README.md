@@ -1,32 +1,97 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Mahida's Film/Book Survey!
 
-Welcome,
+This extensive code heavy project is a Python based project that is deployed within a terminal. The survey is designed to be taken by users who are either film or book enthusiasts. The extensive nature of the code in this project allows users to choose between either a film or a book survey and depending on their choices they will recieve a tailor-made survey that respects their option. The key in this project was to create a fluid working survey using Python that stores data and can give it back to the user if they so wish by viewing the statistics in the sheet that stores the data entries of the survey. This project could have been 300 lines, 400 lines maybe 500 lines of code... However, the goal was to create a level of complexity and make sure users have many options to choose from and a reasonable amount of questions to answer. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+This page contains a single webpage called :
+- run.py / **This file contains the code that is used in this project.**
 
-## Reminders
+## Table of Contents
+<details>
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+<summary>Click here for the Table of Contents</summary>
 
-## Creating the Heroku app
+- [Mockup Screenshots](#mockup-screenshots)
+- [Wireframes](#wireframes)
+- [Features](#features)
+- [User Stories](#user-stories)
+- [UX](#ux)
+- [Tools & Technologies](#tools--technologies)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+</details>
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Mockup Screenshots
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
+## Wireframes
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### Mobile Wireframes
 
----
 
-Happy coding!
+### Tablet Wireframes
+
+
+### Desktop Wireframes
+
+
+
+## Features
+
+
+
+### Future Features
+
+
+
+
+## User Stories
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+
+
+## UX
+
+
+### Color Scheme 
+
+
+### Typography 
+
+
+
+
+## Tools & Technologies 
+
+
+## Testing
+ 
+ Please refer to the [TESTING.md](TESTING.md) file to see the testing of the website.
+
+ ## Deployment
+
+
+
+)
+
+### Local Deployment 
+
+
+
+### Cloning 
+
+
+
+
+## Credits
+
+
+##  Acknowledgements
