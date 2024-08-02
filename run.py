@@ -1112,11 +1112,6 @@ def view_statistics():
             bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
 
     # Print out statistics
-    while True:
-        endin = input("\nPress '1' to exit: ")
-        if endin == '1':
-            end_all()
-
     print(colorama.Fore.GREEN + "\nFilm Survey Statistics:\n")
     print(colorama.Fore.YELLOW + f"Super Enthusiasm:\
  {film_counts['Super Enthusiasm']}")
@@ -1173,13 +1168,12 @@ def end_all():
     clear()
     print("Thank you for taking the survey!")
     print("See you around!")
-    time.sleep(2)
+    time.sleep(3)
     clear()
     exit()
 
 
 # Entry point of the script
-#welcome_message()
-#get_user_name_age()  # Collect the user’s name and age first
-#starting_page()
-view_statistics()
+welcome_message()
+get_user_name_age()  # Collect the user’s name and age first
+starting_page()
