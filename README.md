@@ -79,11 +79,11 @@ This page contains a single webpage called :
 
 - The data model in this project was simply Google Sheets which is a very easy and helpful tool for storing data and retrieving data if anybody reading this README file would like to replicate the project. 
 
-![names](documentation/images/name-sheet.png)
-![film](documentation/images/film-sheet.png)
-![bonus](documentation/images/bonus-sheet.png)
-![book](documentation/images/book-sheet.png)
-![bookbonus](documentation/images/bookbonus-sheet.png)
+![screenshot](documentation/images/name-sheet.png)
+![screenshot](documentation/images/film-sheet.png)
+![screenshot](documentation/images/bonus-sheet.png)
+![screenshot](documentation/images/book-sheet.png)
+![screenshot](documentation/images/bookbonus-sheet.png)
 
 [Spreadsheet link](https://docs.google.com/spreadsheets/d/1CItEB8EXjVia5hxisD0COsFiaz57bzeuxEqTMk5rooI/edit?usp=sharing)
 
