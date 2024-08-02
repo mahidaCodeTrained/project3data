@@ -1103,7 +1103,8 @@ def view_statistics():
 
     # Print out statistics
     print(colorama.Fore.GREEN + "\nFilm Survey Statistics:\n")
-    print(colorama.Fore.YELLOW + f"Super Enthusiasm: {film_counts['Super Enthusiasm']}")
+    print(colorama.Fore.YELLOW + f"Super Enthusiasm:\
+ {film_counts['Super Enthusiasm']}")
     print(f"Moderate Enthusiasm: {film_counts['Moderate Enthusiasm']}")
     print(f"Mild Enthusiasm: {film_counts['Mild Enthusiasm']}")
     print(f"Little Enthusiasm: {film_counts['Little Enthusiasm']}\n")
@@ -1122,14 +1123,16 @@ def view_statistics():
  {film_counts['Next Movie Watch Time']}\n")
 
     print(colorama.Fore.GREEN + "\nBonus Film Survey Statistics:\n")
-    print(colorama.Fore.YELLOW + f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases'\
+    print(colorama.Fore.YELLOW + f"Snack Purchases\
+ - Yes: {bonus_film_counts['Snack Purchases'\
 ]['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
 
     print(f"What day do you go to Cinema: \
  {bonus_film_counts['Going Cinema']}")
 
     print(colorama.Fore.GREEN + "\nBook Survey Statistics:\n")
-    print(colorama.Fore.YELLOW + f"Reading Frequency: {book_counts['Reading Frequency']}")
+    print(colorama.Fore.YELLOW + f"Reading Frequency:\
+ {book_counts['Reading Frequency']}")
     print(f"Book Types: {book_counts['Book Types']}\n")
     print(f"Cover Art Importance: {book_counts['Cover Art Importance']}")
     print(f"Reading Duration: {book_counts['Reading Duration']}")
@@ -1143,7 +1146,6 @@ def view_statistics():
   {bonus_book_counts['Book Convention Attendance']['No']}")
 
     print(f"Cover Attraction: {bonus_book_counts['Cover Attraction']}")
-
 
     while True:
         user_input = input("\nPress '1' to exit or any other key to \
