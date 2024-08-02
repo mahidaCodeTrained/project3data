@@ -925,7 +925,6 @@ def view_statistics():
                 }
                 }
 
-
     film_worksheet = SHEET.worksheet("film")
     film_data = film_worksheet.get_all_records()
 
@@ -944,11 +943,11 @@ def view_statistics():
         if enthusiasm == 1:
             film_counts['Super Enthusiasm'] += 1
         elif enthusiasm == 2:
-                film_counts['Moderate Enthusiasm'] += 1
+            film_counts['Moderate Enthusiasm'] += 1
         elif enthusiasm == 3:
-                film_counts['Mild Enthusiasm'] += 1
+            film_counts['Mild Enthusiasm'] += 1
         elif enthusiasm == 4:
-                film_counts['Little Enthusiasm'] += 1
+            film_counts['Little Enthusiasm'] += 1
 
         film_counts['Ratings'].append(int(row.get('Cinema Rating', 0)))
 
@@ -957,35 +956,35 @@ def view_statistics():
 
         cinema_visit = row.get('Cinema Visit', '2')
         if cinema_visit == 1:
-                film_counts['Cinema Visits']['Yes'] += 1
+            film_counts['Cinema Visits']['Yes'] += 1
         else:
-                film_counts['Cinema Visits']['No'] += 1
+            film_counts['Cinema Visits']['No'] += 1
 
         genre = row.get('Genre', 0)
         if genre == 1:
-                film_counts['Genres']['Action'] += 1
+            film_counts['Genres']['Action'] += 1
         elif genre == 2:
-                film_counts['Genres']['Drama'] += 1
+            film_counts['Genres']['Drama'] += 1
         elif genre == 3:
-                film_counts['Genres']['Crime/Thriller'] += 1
+            film_counts['Genres']['Crime/Thriller'] += 1
         elif genre == 4:
-                film_counts['Genres']['Romance'] += 1
+            film_counts['Genres']['Romance'] += 1
         elif genre == 5:
-                film_counts['Genres']['Comedy'] += 1
+            film_counts['Genres']['Comedy'] += 1
         elif genre == 6:
-                film_counts['Genres']['Sci-Fi'] += 1
+            film_counts['Genres']['Sci-Fi'] += 1
         elif genre == 7:
-                film_counts['Genres']['Other'] += 1
+            film_counts['Genres']['Other'] += 1
 
         watch = (row.get('When will you watch your next movie?', 0))
         if watch == 1:
-                film_counts['Next Movie Watch Time']['Today'] += 1
+            film_counts['Next Movie Watch Time']['Today'] += 1
         elif watch == 2:
-                film_counts['Next Movie Watch Time']['This Week'] += 1
+            film_counts['Next Movie Watch Time']['This Week'] += 1
         elif watch == 3:
-                film_counts['Next Movie Watch Time']['This Month'] += 1
+            film_counts['Next Movie Watch Time']['This Month'] += 1
         elif watch == 4:
-                film_counts['Next Movie Watch Time']['This Year'] += 1
+            film_counts['Next Movie Watch Time']['This Year'] += 1
 
         # Process bonus film data
 
@@ -995,23 +994,23 @@ def view_statistics():
         if snack_purchase == 1:
             bonus_film_counts['Snack Purchases']['Yes'] += 1
         else:
-                bonus_film_counts['Snack Purchases']['No'] += 1
+            bonus_film_counts['Snack Purchases']['No'] += 1
 
         cinema_day = row.get('Cinema Day', 0)
         if cinema_day == 1:
-                bonus_film_counts['Going Cinema']['Monday'] += 1
+            bonus_film_counts['Going Cinema']['Monday'] += 1
         elif cinema_day == 2:
-                bonus_film_counts['Going Cinema']['Tuesday'] += 1
+            bonus_film_counts['Going Cinema']['Tuesday'] += 1
         elif cinema_day == 3:
-                bonus_film_counts['Going Cinema']['Wednesday'] += 1
+            bonus_film_counts['Going Cinema']['Wednesday'] += 1
         elif cinema_day == 4:
-                bonus_film_counts['Going Cinema']['Thursday'] += 1
+            bonus_film_counts['Going Cinema']['Thursday'] += 1
         elif cinema_day == 5:
-                bonus_film_counts['Going Cinema']['Friday'] += 1
+            bonus_film_counts['Going Cinema']['Friday'] += 1
         elif cinema_day == 6:
-                bonus_film_counts['Going Cinema']['Saturday'] += 1
+            bonus_film_counts['Going Cinema']['Saturday'] += 1
         elif cinema_day == 7:
-                bonus_film_counts['Going Cinema']['Sunday'] += 1
+            bonus_film_counts['Going Cinema']['Sunday'] += 1
 
         # Process book data
 
@@ -1023,63 +1022,63 @@ def view_statistics():
         if book_type == 1:
             book_counts['Book Types']['Physical Books'] += 1
         elif book_type == 2:
-                book_counts['Book Types']['E-books'] += 1
+            book_counts['Book Types']['E-books'] += 1
         elif book_type == 3:
-                book_counts['Book Types']['Audiobooks'] += 1
+            book_counts['Book Types']['Audiobooks'] += 1
 
         cover_art = int(row.get('Cover Art Importance', 'Not at all\
  Important'))
         if cover_art == 1:
-                book_counts['Cover Art Importance']['Very Important'] += 1
+            book_counts['Cover Art Importance']['Very Important'] += 1
         elif cover_art == 2:
-                book_counts['Cover Art Importance']['Somewhat Important'] += 1
+            book_counts['Cover Art Importance']['Somewhat Important'] += 1
         elif cover_art == 3:
-                book_counts['Cover Art Importance']['Not Very Important'] += 1
+            book_counts['Cover Art Importance']['Not Very Important'] += 1
         elif cover_art == 4:
-                book_counts['Cover Art Importance']['Not at all\
+            book_counts['Cover Art Importance']['Not at all\
  Important'] += 1
 
         reading_duration = row.get('Reading Duration', 'Under an hour')
         if reading_duration == 1:
-                book_counts['Reading Duration']['Under an hour'] += 1
+            book_counts['Reading Duration']['Under an hour'] += 1
         elif reading_duration == 2:
-                book_counts['Reading Duration']['1-2 hours'] += 1
+            book_counts['Reading Duration']['1-2 hours'] += 1
         elif reading_duration == 3:
-                book_counts['Reading Duration']['2-4 hours'] += 1
+            book_counts['Reading Duration']['2-4 hours'] += 1
         elif reading_duration == 4:
-                book_counts['Reading Duration']['Over 4 hours'] += 1
+            book_counts['Reading Duration']['Over 4 hours'] += 1
 
         book_genre = int(row.get('Book Genre',))
         if book_genre == 1:
-                book_counts['Genres']['Fantasy'] += 1
+            book_counts['Genres']['Fantasy'] += 1
         elif book_genre == 2:
-                book_counts['Genres']['Dystopian'] += 1
+            book_counts['Genres']['Dystopian'] += 1
         elif book_genre == 3:
-                book_counts['Genres']['Romance Novel'] += 1
+            book_counts['Genres']['Romance Novel'] += 1
         elif book_genre == 4:
-                book_counts['Genres']['Horror'] += 1
+            book_counts['Genres']['Horror'] += 1
         elif book_genre == 5:
-                book_counts['Genres']['Biography'] += 1
+            book_counts['Genres']['Biography'] += 1
         elif book_genre == 6:
-                book_counts['Genres']['Historical Fiction'] += 1
+            book_counts['Genres']['Historical Fiction'] += 1
         elif book_genre == 7:
-                book_counts['Genres']['Science Fiction'] += 1
+            book_counts['Genres']['Science Fiction'] += 1
         elif book_genre == 8:
-                book_counts['Genres']['Action'] += 1
+            book_counts['Genres']['Action'] += 1
         elif book_genre == 9:
-                book_counts['Genres']['Children’s'] += 1
+            book_counts['Genres']['Children’s'] += 1
         elif book_genre == 10:
-                book_counts['Genres']['Mystery'] += 1
+            book_counts['Genres']['Mystery'] += 1
 
         read_book = row.get('When will you next read a book?', 0)
         if read_book == 1:
-                book_counts['Next Book Read Time']['Today'] += 1
+            book_counts['Next Book Read Time']['Today'] += 1
         elif read_book == 2:
-                book_counts['Next Book Read Time']['This Week'] += 1
+            book_counts['Next Book Read Time']['This Week'] += 1
         elif read_book == 3:
-                book_counts['Next Book Read Time']['This Month'] += 1
+            book_counts['Next Book Read Time']['This Month'] += 1
         elif read_book == 4:
-                book_counts['Next Book Read Time']['This Year'] += 1
+            book_counts['Next Book Read Time']['This Year'] += 1
 
         # Process bonus book data
     for row in bonus_book_data:
@@ -1088,18 +1087,18 @@ def view_statistics():
         if convention_attendance == 1:
             bonus_book_counts['Book Convention Attendance']['Yes'] += 1
         else:
-                bonus_book_counts['Book Convention Attendance']['No'] += 1
+            bonus_book_counts['Book Convention Attendance']['No'] += 1
 
         cover_attr = row.get('Cover Attraction', 'Colorful')
         if cover_attr == 1:
-                bonus_book_counts['Cover Attraction']['Colorful'] += 1
+            bonus_book_counts['Cover Attraction']['Colorful'] += 1
         elif cover_attr == 2:
-                bonus_book_counts['Cover Attraction']['Interesting\
+            bonus_book_counts['Cover Attraction']['Interesting\
  Picture'] += 1
         elif cover_attr == 3:
-                bonus_book_counts['Cover Attraction']['Material'] += 1
+            bonus_book_counts['Cover Attraction']['Material'] += 1
         elif cover_attr == 4:
-                bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
+            bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
 
     # Print out statistics
     print(colorama.Fore.GREEN + "\nFilm Survey Statistics:\n")
@@ -1168,3 +1167,4 @@ welcome_message()
 get_user_name_age()  # Collect the user’s name and age first
 starting_page()
 view_statistics()
+
