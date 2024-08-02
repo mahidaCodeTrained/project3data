@@ -72,5 +72,27 @@ Although Lighthouse isn't really a huge testing for this project, I've decided t
 ![screenshot](documentation/testing/finalmenu-test.png)
 
 
+## Manual Testing
+
+| Test | Result |
+|--|--|
+|Question 1: When the user places the appropriate input it passes through|Pass|
+|Question 2: When the user places the appropriate input it passes through|Pass|
+|Question 3: When the user places the appropriate input it passes through|Pass|
+|Question 4: When the user places the appropriate input it passes through|Pass|
+|Question 5: When the user places the appropriate input it passes through|Pass|
+|Question 6: When the user places the appropriate input it passes through|Pass|
+|Bonus Question 1: When the user places the appropriate input it passes through|Pass|
+|Bonus Question 2: When the user places the appropriate input it passes through|Pass|
+|Bonus Question 3: When the user places the appropriate input it passes through|Pass|
+|The age passes through when the correct input that is stated is sent by the user|Pass|
+|The name passes through when the correct input is entered by the user without numbers|Pass|
+|When the user clicks to view statistics it passes through|Pass|
+|When the user clicks to exit the program exits the user.|Pass|
+|When the user chooses between the two survey options it places them on the correct one.|Pass|
+
+- The Question 1-6 and Bonus Question 1-3 are both checked and validated by me. 
+- These questions are for both the film and book survey. 
+- To make sure that repitition is at a low I have decided to just add it only once instead of twice for both the film survey and book survey. However, the statement is meant to be for both. 
 
 
