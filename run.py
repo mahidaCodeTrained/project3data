@@ -659,8 +659,8 @@ def book_survey():
         read_hours = input("Please submit your answer: ")
         if read_hours in ['1', '2', '3', '4']:
             book_data.append(read_hours)
-            print(colorama.Fore.GREEN + "We have collected this data, thank you\
- and on to the next question!")
+            print(colorama.Fore.GREEN + "We have collected this\
+ data, thank you and on to the next question!")
             time.sleep(2)
             clear()
 
