@@ -1112,6 +1112,11 @@ def view_statistics():
             bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
 
     # Print out statistics
+    while True:
+        endin = input("\nPress '1' to exit: ")
+        if endin == '1':
+            end_all()
+
     print(colorama.Fore.GREEN + "\nFilm Survey Statistics:\n")
     print(colorama.Fore.YELLOW + f"Super Enthusiasm:\
  {film_counts['Super Enthusiasm']}")
