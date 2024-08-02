@@ -117,13 +117,62 @@ This page contains a single webpage called :
 - This site was deployed via Heroku and not GitHub Pages. Therefore, steps to deploy on GitHub pages will not be present in this README.md file. However, steps to local deployment, forking, cloning and the main deployment to Heroku will be detailed in full so you can replicate this project or have a better understanding of deployment. 
 
 ### Local Deployment 
+- Through the process of forking, you can copy the entire original repository of this project on to your GitHub account without affecting the code and changing the original repository of the project. To fork this please follow these exact steps. 
 
-
+1. Go to the [GitHub repository](https://github.com/mahidaCodeTrained/project3data) for this project.
+2. At the top of the screen where you can find the project name scroll over to the right with your cursor and find the "Fork" symbol.
+3. Click this option.
+4. Once you have clicked on Fork then you should have a copy of the original repository for your disposal. 
 
 ### Cloning 
+This repository can be cloned by following these steps.
 
+1. Go to the [GitHub repository](https://github.com/mahidaCodeTrained/project3data) for the project.
+2. There should be a code button telling you if you would like to clone this project. It will be next to the add files button.
+3. It should tell you if you would like to clone via. HTTPS, SSH or a GitHub CLI, once you have decided what you want to use to clone the repository then click the copy button to copy the url of the project.
+4. Open Git Bash or a Terminal
+5. Once inside, change the working directory to the one where you want the cloned directory that you have copied from the GitHub repository.
+6. In the IDE terminal, you can now clone this repository by inputting this command:
+   - `git clone https://github.com/mahidaCodeTrained/project3data`
 
+### Heroku Deployment
+- In order to deploy this project to Heroku you will need to make sure that a step of certanties are accomplished.
 
+1. You will need to have your Python file primed and ready for deployment to Heroku by updating the requirements.txt file.
+> In order to accomplish this you must run the command `pip3 freeze > requirements.txt` into the terminal of your workspace.
+> As soon as this is completed you will see that your requirements.txt file will be updated with the neccesary requirements needed to deploy to Heroku but it isn't done just yet...
+
+2. As soon as you have completed this step then you need to save your changes and push to GitHub.
+> You will need to `git add` and `git commit -m` the file then proceed to use `git push` to push the changes.
+
+3. You now must visit the [Heroku Dashboard](https://dashboard.heroku.com/)
+> Once inside the Heroku Dashboard fill out the steps required and create a login.
+> Once this is done and you have access to the dashboard you will want to `create a new app` and log your region aswell.
+
+4. Once you have created a new app then you want to go to the Settings tab on Heroku for your project and head over to Config Vars
+> Within the Config Vars subsection in the settings you will want to create two different keys.
+> There will be two different entries available to you. "KEYS" and "VALUES".
+> In "KEYS" add the word "CREDS" in uppercase.
+> In the values entry copy and paste the creds.json file in your workspace into the value entry. Once done click save.
+> You will now want to create an additional key called "PORT" all uppercase. You will want to put the value as "8000" once done save.
+
+5. Once completed scroll down and find "buildpacks".
+> In buildpacks select "add buildpacks" and choose Python.
+> Once you have added Python add another buildpack called node.js
+
+6. You will now want to connect to GitHub through selecting the deploy tab on Heroku.
+> Find the deploy tab and click connect to GitHub
+> Once you have clicked connect to GitHub a search bar will open showcasing the repository that you want to select.
+> Click on the correct repository for the project as this will link Heroku to your GitHub repository taking the details from it. 
+
+7. Deploy
+> Once this is all done scroll down and you will see there are two options to either "Automatic Deploy" or "Manual Deploy"
+> If you select "Automatic" deployment then everytime you commit and push changes to GitHub from your codespace, then the Heroku live app will also automatically update. 
+> If you pick "Manual" then you will have to update it as the name suggests manually.
+
+8. Enjoying your new deployed project.
+> You will now see that there is a tab that takes you to your deployed project on Heroku.
+> Enjoy.
 
 ## Credits
 
