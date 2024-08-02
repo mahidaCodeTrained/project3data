@@ -471,9 +471,7 @@ def end_survey_film():
             print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
             print("Please enter the number (1) or (2).")
 
-        view_statistics()
-
-
+        
 """
 This function book_survey was created for users who selected Option 2
 "Bookreaders" in the entry question in this project.
@@ -826,8 +824,6 @@ def end_survey_book():
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
             print("Please enter the number (1) or (2).")
-
-    view_statistics()
 
 
 def view_statistics():
