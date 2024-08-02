@@ -1160,17 +1160,21 @@ def view_statistics():
     while True:
         user_input = input("\nPress '1' to exit: ")
         if user_input == '1':
+            end_all()
             clear()
-            print(colorama.Fore.GREEN + "You have chosen to exit\
- the survey")
-            print("Thank you for your time, Goodbye!")
-            time.sleep(3)
-            clear()
-            exit()  # To exit the program.
-            clear()
+
+
+def end_all():
+    clear()
+    print("Thank you for taking the survey!")
+    print("See you around!")
+    time.sleep(2)
+    clear()
+    exit()
 
 
 # Entry point of the script
-welcome_message()
-get_user_name_age()  # Collect the user’s name and age first
-starting_page()
+#welcome_message()
+#get_user_name_age()  # Collect the user’s name and age first
+#starting_page()
+view_statistics()
