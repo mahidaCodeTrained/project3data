@@ -110,6 +110,7 @@ This page contains a single webpage called :
 - [Gitpod](https://www.gitpod.io/) used as the IDE to work and code the site.
 - [Google Sheets](https://fonts.google.com/) was used to store survey data from the program and return survey data back in the form of stats.
 - [Heroku](https://en.wikipedia.org/wiki/Heroku) was used to deploy the project.
+- [Colorama](https://pypi.org/project/colorama/) was used to color text
 
 
 ## Testing
