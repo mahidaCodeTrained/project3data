@@ -1,12 +1,10 @@
+from google.oauth2.service_account import Credentials
 import gspread
 import time
 import re
 import os
 import colorama
-import colorama
 colorama.init()
-from google.oauth2.service_account import Credentials
-
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -151,7 +149,7 @@ def film_survey():
     time.sleep(3)
     clear()
 
-    print(colorama.Fore.GREEN + f"Once again, welcome {user_name} \
+    print(colorama.Fore.GREEN + f"Once again, welcome {user_name}\
  we are thrilled that you have")
     print(colorama.Fore.GREEN + "taken the time to take this short survey!\n")
     time.sleep(4)
@@ -169,7 +167,7 @@ def film_survey():
 
     # Question 1
     while True:
-        print(colorama.Fore.YELLOW + "Question One: From these options what \
+        print(colorama.Fore.YELLOW + "Question One: From these options what\
  best describes your level")
         print(colorama.Fore.YELLOW + "of enthusiasm for films in 2024?\n")
         print(colorama.Fore.YELLOW + "1. Super Enthusiasm")
@@ -181,14 +179,14 @@ def film_survey():
 
         if film_answer in ['1', '2', '3', '4']:
             film_data.append(film_answer)
-            print("We have collected this data, thank you and \
+            print("We have collected this data, thank you and\
  on to the next question!")
             time.sleep(2)
             clear()
             break
         else:
             print(colorama.Fore.RED + "You have entered an invalid answer...")
-            print(colorama.Fore.RED + "Please make sure your answer \
+            print(colorama.Fore.RED + "Please make sure your answer\
  corresponds to the option numbers.")
             time.sleep(2)
             clear()
@@ -214,13 +212,13 @@ def film_survey():
                 break
             else:
                 print(colorama.Fore.RED + "Invalid rating.")
-                print(colorama.Fore.RED + "Please enter a number \
+                print(colorama.Fore.RED + "Please enter a number\
  between 1 and 10.")
                 time.sleep(2)
                 clear()
         except ValueError:
             print(colorama.Fore.RED + "Invalid input.")
-            print(colorama.Fore.RED + "Please enter a number \
+            print(colorama.Fore.RED + "Please enter a number\
  between 1 and 10.")
             time.sleep(2)
             clear()
@@ -315,6 +313,7 @@ def film_survey():
         print(colorama.Fore.CYAN + "7. Sunday")
 
         day_cinema = input("Please submit your answer now: ")
+        day_cinema = int(day_cinema)
 
         if day_cinema in [1, 2, 3, 4, 5, 6, 7]:
             bonus_data.append(day_cinema)
@@ -342,8 +341,8 @@ def film_survey():
         print(colorama.Fore.YELLOW + "5. Comedy")
         print(colorama.Fore.YELLOW + "6. Sci-Fi")
         print(colorama.Fore.YELLOW + "7. Other\n")
-        print(colorama.Fore.GREEN + "In this question you must select an answer\
- between the numbers 1 and 7 depending on your preference.\n")
+        print(colorama.Fore.GREEN + "In this question you must select an\
+ answer between the numbers 1 and 7 depending on your preference.\n")
         genre = input("Please select an option now: ")
 
         if genre in ['1', '2', '3', '4', '5', '6', '7']:
@@ -382,7 +381,7 @@ def film_survey():
         print(colorama.Fore.CYAN + "Bonus Question Three: I see that you\
  have selected 'Other'\
  I'll simply ask what is your all-time favorite movie?\n")
-    
+
     favorite = input("Please enter your answer: ")
     bonus_data.append(favorite)
 
@@ -390,8 +389,6 @@ def film_survey():
  on to the final question!")
     time.sleep(2)
     clear()
-  
-    
 
     while True:
         print(colorama.Fore.YELLOW + "Question Six: When will you\
@@ -407,9 +404,9 @@ def film_survey():
             print(f"Thank you for answering {user_name}.")
             time.sleep(2)
             clear()
-            break 
+            break
         else:
-            print(colorama.Fore.RED +"Sorry but this answer is invalid.")
+            print(colorama.Fore.RED + "Sorry but this answer is invalid.")
             print(colorama.Fore.RED + "Please enter a value between [1-4]")
             time.sleep(2)
             clear()
@@ -425,28 +422,26 @@ def film_survey():
  the data to Google Sheets:")
         print(colorama.Fore.RED + str(e))
 
-
-
     print("Calling end_survey_film() now...")  # Debugging statement
     end_survey_film()  # Call the end_survey_film function here to\
-    #conclude the survey
+    # conclude the survey
+
 
 def end_survey_film():
-    global user_choice # Creating a global variable to ensure\
-    #that the right survey details are shown
+
+    global user_choice   # Creating a global variable to ensure\
+    # that the right survey details are shown
     user_choice = '1'
     clear()
     print(f"Thank you for taking this film survey, {user_name}!")
     print("This survey and the data recorded will help us understand")
     print("the mindset of a film enthusiast in 2024.\n")
-    
     print("I'm sure you're keen to know just how everybody\
  who has completed")
     print("this survey has gotten on, so please select the option to\
  'View Statistics'.\n")
     print("However, if you want to just exit the program then please\
  select 'Exit'.\n")
-    
     print("1. View Statistics")
     print("2. Exit")
 
@@ -467,7 +462,6 @@ def end_survey_film():
             print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
             print("Please enter the number (1) or (2).")
 
-        
         view_statistics()
 
 
@@ -477,6 +471,7 @@ This function book_survey was created for users who selected Option 2
 It has questions tailor-made
 so that bookreaders can honestly complete it.
 """
+
 
 def book_survey():
     if user_name is None:
@@ -517,7 +512,7 @@ def book_survey():
             often_read = int(input("Please enter a rating between 1-10: "))
             if 1 <= often_read <= 10:
                 book_data.append(str(often_read))  # Convert to string for \
-                #consistency
+                # consistency
                 print("We have collected this data, thank you and\
  on to the next question!")
                 time.sleep(2)
@@ -554,7 +549,8 @@ def book_survey():
             clear()
             break
         else:
-            print(colorama.Fore.RED + f"Sorry {user_name}, this answer is invalid.")
+            print(colorama.Fore.RED + f"Sorry {user_name},\
+ this answer is invalid.")
             print("You must answer with the numbers (1) or (2).")
             time.sleep(2)
             clear()
@@ -616,8 +612,8 @@ def book_survey():
 
     # Bonus Question Two
     while True:
-        print(colorama.Fore.CYAN + "Bonus Question Two: What type of book-cover\
- attracts your eye?\n")
+        print(colorama.Fore.CYAN + "Bonus Question Two: What type of\
+ book-cover attracts your eye?\n")
         print(colorama.Fore.CYAN + "1. Colorful")
         print(colorama.Fore.CYAN + "2. Interesting Picture")
         print(colorama.Fore.CYAN + "3. Material")
@@ -625,7 +621,6 @@ def book_survey():
 
         print(colorama.Fore.GREEN + "Please select an option through (1-4)\
  using the numbers (1-4)")
-        
         attract = input("Please submit your answer: ")
         attract = int(attract)
         if attract in [1, 2, 3, 4]:
@@ -634,7 +629,6 @@ def book_survey():
  next question!")
             time.sleep(2)
             clear()
-            
 
             break
         else:
@@ -673,7 +667,6 @@ def book_survey():
             time.sleep(2)
             clear()
 
-    
     # Question 5
     while True:
         print(colorama.Fore.YELLOW + "Question Five: From this selection\
@@ -689,7 +682,6 @@ def book_survey():
         print(colorama.Fore.YELLOW + "9. Childrens")
         print(colorama.Fore.YELLOW + "10. Mystery\n")
 
-    
         book_genre = input("Please submit your answer: ")
         if book_genre in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
             book_data.append(book_genre)
@@ -724,43 +716,48 @@ def book_survey():
         print(colorama.Fore.CYAN + "Bonus Question Three: What is your\
  favourite historical fiction novel?")
     elif book_genre == '7':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite science fiction novel?")
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your\
+ favourite science fiction novel?")
     elif book_genre == '8':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite action novel?")
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your\
+ favourite action novel?")
     elif book_genre == '9':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favouirite childrens book?")
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your\
+ favouirite childrens book?")
     elif book_genre == '10':
-        print(colorama.Fore.CYAN + "Bonus Question Three: What is your favourite mystery novel?")
-    
+        print(colorama.Fore.CYAN + "Bonus Question Three: What is your\
+ favourite mystery novel?")
+
     book_favorite = input("Please enter your answer: ")
     bonus_book_data.append(book_favorite)
 
-    print(colorama.Fore.CYAN + f"Thank you for answering {user_name}, on to the final question!")
+    print(colorama.Fore.CYAN + f"Thank you for answering {user_name}, on\
+ to the final question!")
     time.sleep(2)
     clear()
-        
-    
+
     # Question 6
     while True:
-        print(colorama.Fore.YELLOW + "Question Six: When will you read your next book?\n")
+        print(colorama.Fore.YELLOW + "Question Six: When will you read\
+ your next book?\n")
         print(colorama.Fore.YELLOW + "1. Today")
         print(colorama.Fore.YELLOW + "2. This Week")
         print(colorama.Fore.YELLOW + "3. This Month")
         print(colorama.Fore.YELLOW + "4. This Year")
 
         reading = input("Please enter your answer now: ")
+        reading = int(reading)
         if reading in [1, 2, 3, 4]:
             book_data.append(reading)
             print(f"Thank you for answering {user_name}.")
             time.sleep(2)
             clear()
-            break 
+            break
         else:
-            print(colorama.Fore.RED +"Sorry but this answer is invalid.")
+            print(colorama.Fore.RED + "Sorry but this answer is invalid.")
             print(colorama.Fore.RED + "Please enter a value between [1-4]")
             time.sleep(2)
             clear()
-
 
     # This allows for the data to append to Google Sheets
     try:
@@ -768,13 +765,15 @@ def book_survey():
         book_survey_worksheet.append_row(book_data)
         bonus_book_survey_worksheet = SHEET.worksheet('bookbonus')
         bonus_book_survey_worksheet.append_row(bonus_book_data)
-        print(colorama.Fore.GREEN + "Book survey data has been successfully recorded.")
+        print(colorama.Fore.GREEN + "Book survey data has been\
+ successfully recorded.")
     except Exception as e:
-        print(colorama.Fore.RED + "An error occurred while appending the data to Google Sheets:")
+        print(colorama.Fore.RED + "An error occurred while appending the\
+ data to Google Sheets:")
         print(colorama.Fore.RED + str(e))
 
-
     end_survey_book()
+
 
 def end_survey_book():
     global user_choice
@@ -783,11 +782,13 @@ def end_survey_book():
     print(f"Thank you for taking this book survey, {user_name}!")
     print("This survey and the data recorded will help us understand")
     print("the mindset of a film enthusiast in 2024.\n")
-    
+
     print("I'm sure you're keen to know just how everybody who has completed")
-    print("this survey has gotten on, so please select the option to 'View Statistics'.\n")
-    print("However, if you want to just exit the program then please select 'Exit'.\n")
-    
+    print("this survey has gotten on, so please select the \
+ option to 'View Statistics'.\n")
+    print("However, if you want to just exit the program\
+ then please select 'Exit'.\n")
+
     print("1. View Statistics")
     print("2. Exit")
 
@@ -811,13 +812,12 @@ def end_survey_book():
     view_statistics()
 
 
-
 def view_statistics():
     clear()
     print(colorama.Fore.GREEN + "Fetching survey statistics...")
     time.sleep(2)
     clear()
-    
+
     # Initialize counts dictionaries
     film_counts = {
         'Super Enthusiasm': 0,
@@ -829,13 +829,13 @@ def view_statistics():
         'Cinema Visits': {'Yes': 0, 'No': 0},
         'Genres': {'Action': 0, 'Drama': 0, 'Crime/Thriller': 0, 'Romance': 0, 'Comedy': 0, 'Sci-Fi': 0, 'Other': 0},
         'Next Movie Watch Time': {'Today': 0, 'This Week': 0, 'This Month': 0, 'This Year': 0}
-       
+
     }
     bonus_film_counts = {
-        
+
         'Snack Purchases': {'Yes': 0, 'No': 0},
         'Going Cinema': {'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'Friday': 0, 'Saturday': 0, 'Sunday': 0},
-       
+
     }
 
     book_counts = {
@@ -850,187 +850,186 @@ def view_statistics():
     }
     bonus_book_counts = {
         'Book Convention Attendance': {'Yes': 0, 'No': 0},
-        
+
         'Cover Attraction': {'Colorful': 0, 'Interesting Picture': 0, 'Material': 0, 'Comments on Cover': 0},
-        
-       
+
     }
-   # try:
-        # Fetch film survey data
+
+    # try:
+
     film_worksheet = SHEET.worksheet("film")
     film_data = film_worksheet.get_all_records()
-        # Fetch bonus film data
+
     bonus_worksheet = SHEET.worksheet("bonus")
     bonus_data = bonus_worksheet.get_all_records()
-        
-        # Fetch book survey data
+
     book_worksheet = SHEET.worksheet("book")
     book_data = book_worksheet.get_all_records()
-        # Fetch bonus book data
+
     bonus_book_worksheet = SHEET.worksheet("bookbonus")
     bonus_book_data = bonus_book_worksheet.get_all_records()
-        # Process film data
-        
+
     for row in film_data:
-            
-            enthusiasm = int(row.get('Enthusiasm', 0))
-            if enthusiasm == 1:
-                film_counts['Super Enthusiasm'] += 1
-            elif enthusiasm == 2:
+
+        enthusiasm = int(row.get('Enthusiasm', 0))
+        if enthusiasm == 1:
+            film_counts['Super Enthusiasm'] += 1
+        elif enthusiasm == 2:
                 film_counts['Moderate Enthusiasm'] += 1
-            elif enthusiasm == 3:
+        elif enthusiasm == 3:
                 film_counts['Mild Enthusiasm'] += 1
-            elif enthusiasm == 4:
+        elif enthusiasm == 4:
                 film_counts['Little Enthusiasm'] += 1
 
-            film_counts['Ratings'].append(int(row.get('Cinema Rating', 0)))
+        film_counts['Ratings'].append(int(row.get('Cinema Rating', 0)))
 
-            film_counts['Average Watching'].append(int(row.get('How often you watch Movies?', 0)))
+        film_counts['Average Watching'].append(int(row.get('How often\
+ you watch Movies?', 0)))
 
-            cinema_visit = row.get('Cinema Visit', '2')
-            if cinema_visit == 1:
+        cinema_visit = row.get('Cinema Visit', '2')
+        if cinema_visit == 1:
                 film_counts['Cinema Visits']['Yes'] += 1
-            else:
+        else:
                 film_counts['Cinema Visits']['No'] += 1
 
-            genre = row.get('Genre', 0)
-            if genre == 1:
+        genre = row.get('Genre', 0)
+        if genre == 1:
                 film_counts['Genres']['Action'] += 1
-            elif genre == 2:
+        elif genre == 2:
                 film_counts['Genres']['Drama'] += 1
-            elif genre == 3:
+        elif genre == 3:
                 film_counts['Genres']['Crime/Thriller'] += 1
-            elif genre == 4:
+        elif genre == 4:
                 film_counts['Genres']['Romance'] += 1
-            elif genre == 5:
+        elif genre == 5:
                 film_counts['Genres']['Comedy'] += 1
-            elif genre == 6:
+        elif genre == 6:
                 film_counts['Genres']['Sci-Fi'] += 1
-            elif genre == 7:
+        elif genre == 7:
                 film_counts['Genres']['Other'] += 1
 
-            watch = row.get('When will you watch your next movie?', 0)
-            if watch == 1:
+        watch = (row.get('When will you watch your next movie?', 0))
+        if watch == 1:
                 film_counts['Next Movie Watch Time']['Today'] += 1
-            elif watch == 2:
+        elif watch == 2:
                 film_counts['Next Movie Watch Time']['This Week'] += 1
-            elif watch == 3:
+        elif watch == 3:
                 film_counts['Next Movie Watch Time']['This Month'] += 1
-            elif watch == 4:
+        elif watch == 4:
                 film_counts['Next Movie Watch Time']['This Year'] += 1
-    
 
         # Process bonus film data
-   
+
     for row in bonus_data:
-            
-            snack_purchase = int(row.get('Snack Purchase', 2))
-            if snack_purchase == 1:
-                bonus_film_counts['Snack Purchases']['Yes'] += 1
-            else:
+
+        snack_purchase = int(row.get('Snack Purchase', 2))
+        if snack_purchase == 1:
+            bonus_film_counts['Snack Purchases']['Yes'] += 1
+        else:
                 bonus_film_counts['Snack Purchases']['No'] += 1
 
-            cinema_day = row.get('Cinema Day', 0)
-            if cinema_day == 1:
+        cinema_day = row.get('Cinema Day', 0)
+        if cinema_day == 1:
                 bonus_film_counts['Going Cinema']['Monday'] += 1
-            elif cinema_day == 2:
+        elif cinema_day == 2:
                 bonus_film_counts['Going Cinema']['Tuesday'] += 1
-            elif cinema_day == 3:
+        elif cinema_day == 3:
                 bonus_film_counts['Going Cinema']['Wednesday'] += 1
-            elif cinema_day == 4:
+        elif cinema_day == 4:
                 bonus_film_counts['Going Cinema']['Thursday'] += 1
-            elif cinema_day == 5:
+        elif cinema_day == 5:
                 bonus_film_counts['Going Cinema']['Friday'] += 1
-            elif cinema_day == 6:
+        elif cinema_day == 6:
                 bonus_film_counts['Going Cinema']['Saturday'] += 1
-            elif cinema_day == 7:
+        elif cinema_day == 7:
                 bonus_film_counts['Going Cinema']['Sunday'] += 1
-            
-           
-        
+
         # Process book data
 
     for row in book_data:
-            reading_freq = int(row.get('Reading Frequency', 0))
-            book_counts['Reading Frequency'].append(reading_freq)
+        reading_freq = int(row.get('Reading Frequency', 0))
+        book_counts['Reading Frequency'].append(reading_freq)
 
-            book_type = row.get('Book Type', 'Physical Books')
-            if book_type == 1:
-                book_counts['Book Types']['Physical Books'] += 1
-            elif book_type == 2:
+        book_type = row.get('Book Type', 'Physical Books')
+        if book_type == 1:
+            book_counts['Book Types']['Physical Books'] += 1
+        elif book_type == 2:
                 book_counts['Book Types']['E-books'] += 1
-            elif book_type == 3:
+        elif book_type == 3:
                 book_counts['Book Types']['Audiobooks'] += 1
-            
-            cover_art = int(row.get('Cover Art Importance', 'Not at all Important'))
-            if cover_art == 1:
-                book_counts['Cover Art Importance']['Very Important'] += 1
-            elif cover_art == 2:
-                book_counts['Cover Art Importance']['Somewhat Important'] += 1
-            elif cover_art == 3:
-                book_counts['Cover Art Importance']['Not Very Important'] += 1
-            elif cover_art == 4:
-                book_counts['Cover Art Importance']['Not at all Important'] += 1
 
-            reading_duration = row.get('Reading Duration', 'Under an hour')
-            if reading_duration == 1:
+        cover_art = int(row.get('Cover Art Importance', 'Not at all\
+ Important'))
+        if cover_art == 1:
+                book_counts['Cover Art Importance']['Very Important'] += 1
+        elif cover_art == 2:
+                book_counts['Cover Art Importance']['Somewhat Important'] += 1
+        elif cover_art == 3:
+                book_counts['Cover Art Importance']['Not Very Important'] += 1
+        elif cover_art == 4:
+                book_counts['Cover Art Importance']['Not at all\
+ Important'] += 1
+
+        reading_duration = row.get('Reading Duration', 'Under an hour')
+        if reading_duration == 1:
                 book_counts['Reading Duration']['Under an hour'] += 1
-            elif reading_duration == 2:
+        elif reading_duration == 2:
                 book_counts['Reading Duration']['1-2 hours'] += 1
-            elif reading_duration == 3:
+        elif reading_duration == 3:
                 book_counts['Reading Duration']['2-4 hours'] += 1
-            elif reading_duration == 4:
+        elif reading_duration == 4:
                 book_counts['Reading Duration']['Over 4 hours'] += 1
-            
-            book_genre = int(row.get('Book Genre',))
-            if book_genre == 1:
+
+        book_genre = int(row.get('Book Genre',))
+        if book_genre == 1:
                 book_counts['Genres']['Fantasy'] += 1
-            elif book_genre == 2:
+        elif book_genre == 2:
                 book_counts['Genres']['Dystopian'] += 1
-            elif book_genre == 3:
+        elif book_genre == 3:
                 book_counts['Genres']['Romance Novel'] += 1
-            elif book_genre == 4:
+        elif book_genre == 4:
                 book_counts['Genres']['Horror'] += 1
-            elif book_genre == 5:
+        elif book_genre == 5:
                 book_counts['Genres']['Biography'] += 1
-            elif book_genre == 6:
+        elif book_genre == 6:
                 book_counts['Genres']['Historical Fiction'] += 1
-            elif book_genre == 7:
+        elif book_genre == 7:
                 book_counts['Genres']['Science Fiction'] += 1
-            elif book_genre == 8:
+        elif book_genre == 8:
                 book_counts['Genres']['Action'] += 1
-            elif book_genre == 9:
+        elif book_genre == 9:
                 book_counts['Genres']['Children’s'] += 1
-            elif book_genre == 10:
+        elif book_genre == 10:
                 book_counts['Genres']['Mystery'] += 1
 
-            read_book = row.get('When will you next read a book?', 0)
-            if read_book == 1:
+        read_book = row.get('When will you next read a book?', 0)
+        if read_book == 1:
                 book_counts['Next Book Read Time']['Today'] += 1
-            elif read_book == 2:
+        elif read_book == 2:
                 book_counts['Next Book Read Time']['This Week'] += 1
-            elif read_book == 3:
+        elif read_book == 3:
                 book_counts['Next Book Read Time']['This Month'] += 1
-            elif read_book == 4:
+        elif read_book == 4:
                 book_counts['Next Book Read Time']['This Year'] += 1
 
         # Process bonus book data
     for row in bonus_book_data:
-      
-            convention_attendance = row.get('Book Convention Attendance', '2')
-            if convention_attendance == 1:
-                bonus_book_counts['Book Convention Attendance']['Yes'] += 1
-            else:
+
+        convention_attendance = row.get('Book Convention Attendance', '2')
+        if convention_attendance == 1:
+            bonus_book_counts['Book Convention Attendance']['Yes'] += 1
+        else:
                 bonus_book_counts['Book Convention Attendance']['No'] += 1
 
-            cover_attr = row.get('Cover Attraction', 'Colorful')
-            if cover_attr == 1:
+        cover_attr = row.get('Cover Attraction', 'Colorful')
+        if cover_attr == 1:
                 bonus_book_counts['Cover Attraction']['Colorful'] += 1
-            elif cover_attr == 2:
-                bonus_book_counts['Cover Attraction']['Interesting Picture'] += 1
-            elif cover_attr == 3:
+        elif cover_attr == 2:
+                bonus_book_counts['Cover Attraction']['Interesting\
+ Picture'] += 1
+        elif cover_attr == 3:
                 bonus_book_counts['Cover Attraction']['Material'] += 1
-            elif cover_attr == 4:
+        elif cover_attr == 4:
                 bonus_book_counts['Cover Attraction']['Comments on Cover'] += 1
 
     # Print out statistics
@@ -1039,30 +1038,27 @@ def view_statistics():
     print(f"Moderate Enthusiasm: {film_counts['Moderate Enthusiasm']}")
     print(f"Mild Enthusiasm: {film_counts['Mild Enthusiasm']}")
     print(f"Little Enthusiasm: {film_counts['Little Enthusiasm']}\n")
-    
 
     print(f"Average Cinema Rating in 2024: {sum(film_counts['Ratings'\
  ]) / len(film_counts['Ratings']) if film_counts['Ratings'] else 0}")
     print(f"Average Watching: {sum(film_counts['Average Watching'\
- ]) / len(film_counts['Average Watching']) if film_counts['Average Watching'] else 0}\n")
-    
-    
+ ]) / len(film_counts['Average Watching']) if film_counts['Average\
+ Watching'] else 0}\n")
+
     print(f"Cinema Visits - Yes: {film_counts['Cinema Visits']['Yes']}, \
  No: {film_counts['Cinema Visits']['No']}")
-    
-    
+
     print(f"Genres: {film_counts['Genres']}")
     print(f"When will you watch your next movie?\
  {film_counts['Next Movie Watch Time']}\n")
-    
-    
+
     print(colorama.Fore.YELLOW + "\nBonus Film Survey Statistics:\n")
     print(f"Snack Purchases - Yes: {bonus_film_counts['Snack Purchases'\
  ]['Yes']}, No: {bonus_film_counts['Snack Purchases']['No']}")
-    
+
     print(f"What day do you go to Cinema: \
  {bonus_film_counts['Going Cinema']}")
-    
+
     print(colorama.Fore.YELLOW + "\nBook Survey Statistics:\n")
     print(f"Reading Frequency: {book_counts['Reading Frequency']}")
     print(f"Book Types: {book_counts['Book Types']}\n")
@@ -1071,21 +1067,32 @@ def view_statistics():
     print(f"Genres: {book_counts['Genres']}\n")
     print(f"When will you read your next book?\
   {book_counts['Next Book Read Time']}")
-    
+
     print(colorama.Fore.GREEN + "\nBonus Book Survey Statistics:\n")
     print(colorama.Fore.YELLOW + f"Book Convention Attendance - Yes: \
   {bonus_book_counts['Book Convention Attendance']['Yes']}, No:\
   {bonus_book_counts['Book Convention Attendance']['No']}")
-   
-   
+
     print(f"Cover Attraction: {bonus_book_counts['Cover Attraction']}")
 
-    input("Please enter: ")
-    
-    
-   
+
+    while True:
+        user_input = input("\nPress '1' to exit or any other key to return to the menu: ")
+        if user_input == '1':
+            clear()
+            print("You have chosen to exit. Goodbye!")
+            time.sleep(2)  # Optionally wait for a moment before exiting
+            clear()
+            break  # Exit the while loop and end the function
+        else:
+            print("Returning to the menu...")
+            time.sleep(2)
+            clear()
+            break  # Exit the while loop and end the function
+
+
 # Entry point of the script
-welcome_message()
-get_user_name_age()  # Collect the user’s name and age first
-starting_page()
+#welcome_message()
+#get_user_name_age()  # Collect the user’s name and age first
+#starting_page()
 view_statistics()
