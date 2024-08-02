@@ -179,8 +179,8 @@ def film_survey():
 
         if film_answer in ['1', '2', '3', '4']:
             film_data.append(film_answer)
-            print("We have collected this data, thank you and\
- on to the next question!")
+            print(colorama.Fore.GREEN + "We have collected this data, thank\
+ you and on to the next question!")
             time.sleep(2)
             clear()
             break
@@ -287,8 +287,8 @@ def film_survey():
 
         if cinema in ['1', '2']:
             film_data.append(int(cinema))
-            print("We have collected this data, thank you and on to\
- the next question!")
+            print(colorama.Fore.GREEN + "We have collected this data,\
+ thank you and on to the next question!")
             time.sleep(2)
             clear()
             break
@@ -400,7 +400,8 @@ def film_survey():
         watch_movie = input("Please enter your answer now: ")
         if watch_movie in ['1', '2', '3', '4']:
             film_data.append(watch_movie)
-            print(f"Thank you for answering {user_name}.")
+            print(colorama.Fore.GREEN + f"Thank you for\
+ answering {user_name}.")
             time.sleep(2)
             clear()
             break
@@ -603,8 +604,8 @@ def book_survey():
         cover_art = input("Please enter your answer now: ")
         if cover_art in ['1', '2', '3', '4']:
             book_data.append(cover_art)
-            print("We have collected this data, thank you and on to\
- the next question!")
+            print(colorama.Fore.GREEN + "We have collected this data,\
+ thank you and on tothe next question!")
             time.sleep(2)
             clear()
             break
@@ -658,8 +659,8 @@ def book_survey():
         read_hours = input("Please submit your answer: ")
         if read_hours in ['1', '2', '3', '4']:
             book_data.append(read_hours)
-            print("We have collected this data, thank you and on to the\
- next question!")
+            print(colorama.Fore.GREEN + "We have collected this data, thank you\
+ and on to the next question!")
             time.sleep(2)
             clear()
 
@@ -690,8 +691,8 @@ def book_survey():
         book_genre = input("Please submit your answer: ")
         if book_genre in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
             book_data.append(book_genre)
-            print("We have collected this data, thank you and on to the\
- next question!")
+            print(colorama.Fore.GREEN + "We have collected this\
+ data, thank you and on to the next question!")
             time.sleep(2)
             clear()
             break
@@ -753,7 +754,8 @@ def book_survey():
         reading = input("Please enter your answer now: ")
         if reading in ['1', '2', '3', '4']:
             book_data.append(reading)
-            print(f"Thank you for answering {user_name}.")
+            print(colorama.Fore.GREEN + f"Thank you for\
+ answering {user_name}.")
             time.sleep(2)
             clear()
             break
