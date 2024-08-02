@@ -28,8 +28,11 @@ Return to the [README.md](README.md) file.
 | run.py | [CI Python Linter](https://pep8ci.herokuapp.com/#) | ![screenshot](documentation/testing/pythonlinter-success.png) | Passed all checks |
 
 ## Lighthouse
-- Although Lighthouse isn't really a huge testing for this project, I've decided to include it to make sure I've taken every reasonable step in testing.
-| Page | Mobile | Desktop | Notes |
-| :---: | :---: | :---: | :---: |
-| run.py | ![screenshot](documentation/testing/mobile-lighthouse.png) | ![screenshot](documentation/testing/desktop-lighthouse.png) | The site that the program is running on is running very well if not perfectly. The only hickups that can be spotted with the 95 "Accesibility" is completely out of my control because of the run program button and contrast issues. |
+## Lighthouse
+Although Lighthouse isn't really a huge testing for this project, I've decided to include it to make sure I've taken every reasonable step in testing.
+
+| Page   | Mobile                                                                                  | Desktop                                                                                   | Notes                                                                                                                                                                         |
+| :----: | :-------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| run.py | ![screenshot](documentation/testing/mobile-lighthouse.png) | ![screenshot](documentation/testing/desktop-lighthouse.png) | The site that the program is running on is running very well if not perfectly. The only hiccups that can be spotted with the 95 "Accessibility" score are completely out of my control due to the run program button and contrast issues. |
+
 
