@@ -63,6 +63,9 @@ This page contains a single webpage called :
 - When I return to this project I would like to add more features that personalize the users experience even more with additional prompts and questions designed to take into account the users previous answers so the survey can feel complex and progressive for the users taking it.
 - Additonally, I would love to create a detailed homescreen that provides a spoiler in some ways to what both sides of the survey will entail.
 
+- The bonus question three data although is stored in my google sheet is not delievered through in the statistics to the user. 
+> This was a creative decision by me as with the increasing amount of submissions it gets chaotic and it will destroy the screen and the visual experience of the user when they want to check actual data that is important such as averages and counts. 
+
 ## User Stories
 1. As a new user I want to be able to take a fast and easy survey.
 2. As a new user, I want to be able to have a preference in either a book or film survey.
