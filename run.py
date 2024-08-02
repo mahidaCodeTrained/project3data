@@ -427,6 +427,12 @@ def film_survey():
     # conclude the survey
 
 
+"""
+This function was created as a personalised
+way to end the film survey.
+"""
+
+
 def end_survey_film():
 
     global user_choice   # Creating a global variable to ensure\
@@ -451,12 +457,15 @@ def end_survey_film():
             view_statistics()
             break
         elif choice == '2':
+            clear()
             print(colorama.Fore.GREEN + "Exiting the Survey")
             print("Thank you for your time!")
             time.sleep(2)
             print("Your data submitted in this survey will be stored.")
             print("May we meet again in another survey!")
             time.sleep(3)
+            clear()
+            exit()
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
@@ -775,6 +784,12 @@ def book_survey():
     end_survey_book()
 
 
+"""
+This function was created so it has a personalised
+end route for those who picked book survey
+"""
+
+
 def end_survey_book():
     global user_choice
     user_choice = '2'
@@ -798,12 +813,15 @@ def end_survey_book():
             view_statistics()
             break
         elif choice == '2':
+            clear()
             print(colorama.Fore.GREEN + "Exiting the Survey")
             print("Thank you for your time!")
             time.sleep(2)
             print("Your data submitted in this survey will be stored.")
             print("May we meet again in another survey!")
             time.sleep(3)
+            clear()
+            exit()
             break
         else:
             print(colorama.Fore.RED + f"Sorry {user_name}, that is invalid.")
@@ -1147,19 +1165,15 @@ def view_statistics():
     print(f"Cover Attraction: {bonus_book_counts['Cover Attraction']}")
 
     while True:
-        user_input = input("\nPress '1' to exit or any other key to \
- return to the menu: ")
+        user_input = input("\nPress '1' to exit: ")
         if user_input == '1':
             clear()
-            print("You have chosen to exit. Goodbye!")
-            time.sleep(2)  # Optionally wait for a moment before exiting
+            print(colorama.Fore.GREEN + "You have chosen to exit\
+ the survey")
+            print("Thank you for your time, Goodbye!")
+            time.sleep(3)
             clear()
-            break  # Exit the while loop and end the function
-        else:
-            print("Returning to the menu...")
-            time.sleep(2)
-            clear()
-            break  # Exit the while loop and end the function
+            exit()  # To exit the program.
 
 
 # Entry point of the script
@@ -1167,4 +1181,3 @@ welcome_message()
 get_user_name_age()  # Collect the user’s name and age first
 starting_page()
 view_statistics()
-
