@@ -40,22 +40,23 @@ This page contains a single webpage called :
 
 ### Existing Features
 
-| Feature | Description | Screenshot |
+| Feature | Screenshot | Description |
 | :---: | :---: | :---: |
-| **Starting Screen** | The starting screen of the program is designed to be as typical as a program activation can be with the words "Program Activated | ![screenshot](documentation/features/starting-features.png) |
-| **Name and Age Collection** | The collection of the name and age of the users | ![screenshot](documentation/features/name-features.png) | ![screenshot](documentation/features/age-features.png) |
-| **Name and Age Errors** | The program activates an error prompt when the users entry is invalid and explains why. | ![screenshot](documentation/features/name-errorprompt-features.png) | ![screenshot](documentation/features/age-errorprompt-features.png) |
-| **Survey Selection** | The program allows the user to select the survey they would like to take part in | ![screenshot](documentation/features/surveychoice-features.png) |
-| **Return Name** | The name that the user enters within the project is returned to them along with their option so that they understand what survey they are taking it's good UX. | ![screenshot](documentation/features/return-feature.png) |
-| **Question 1** | The first question in the survey gives the user a choice of 4 options that are all given a value between (1-4) which will reflect on the google sheet. | ![screenshot](documentation/features/question1film-features.png) |
-| **Question 2** | The second question in the film survey showcases that the questions differ in their entries. This question asks for a number between 1-10 | ![screenshot](documentation/features/question2-features.png) |
-| **Bonus Question** | The survey asks bonus questions to the user that are different in color to the normal questions that the user faces. These questions themselves are stored in a different sheet alltogether.  | ![screenshot](documentation/features/bonus-features.png) |
-| **Question 5** | This table has shifted from Q2 straight to Q5 because the features in Q3 and Q4 are similar. The difference in Q5 is that the selection of the number that you pick directly gives you a question based on your choice right after this. | ![screenshot](documentation/features/Question5-features.png) |
-| **Question 5 Follow Up Bonus** | The follow up question to Question 5 is giving you a personalised question based on your choice in Q5. If the user picks option 7 in Q5 then they will recieve this in 'Bonus Question Three' | ![screenshot](documentation/features/BonusQ3-features.png) |
-| **Final Menu** | This final menu is brought up when the user completes the questions in the survey. The menu is personalised showing the users name and what survey they have taken. The book survey additionally shows that they have taken the book survey. | ![screenshot](documentation/features/finalmenu-features.png) | ![screenshot](documentation/features/bookfinal-features.png) |
-| **Final Options** | The final menu contains two different options. 1. View Statistics, 2. Exit. These options allow the user to either check the results of the survey by all users that have completed it. The second option closes the survey completely. | ![screenshot](documentation/features/finaloptions-features.png) |
-| **Exit Message** | There is an exit message that shows once the user selects the exit option. | ![screenshot](documentation/features/exit-features.png) |
-| **Stats** | The statistics function when activated by the user with their choice showcases the survey results from every single user that has taken the survey this displays both the film survey and the book survey results that has been processed and delivered to the program with google sheets. | ![screenshot](documentation/features/film-stats.png) | ![screenshot](documentation/features/book-stats.png) |
+| **Starting Screen** | ![screenshot](documentation/features/starting-features.png) | The starting screen of the program is designed to be as typical as a program activation can be with the words "Program Activated" |
+| **Name and Age Collection** | ![screenshot](documentation/features/name-features.png) ![screenshot](documentation/features/age-features.png) | The collection of the name and age of the users |
+| **Name and Age Errors** | ![screenshot](documentation/features/name-errorprompt-features.png) ![screenshot](documentation/features/age-errorprompt-features.png) | The program activates an error prompt when the user's entry is invalid and explains why. |
+| **Survey Selection** | ![screenshot](documentation/features/surveychoice-features.png) | The program allows the user to select the survey they would like to take part in |
+| **Return Name** | ![screenshot](documentation/features/return-feature.png) | The name that the user enters within the project is returned to them along with their option so that they understand what survey they are taking. It's good UX. |
+| **Question 1** | ![screenshot](documentation/features/question1film-features.png) | The first question in the survey gives the user a choice of 4 options that are all given a value between (1-4) which will reflect on the Google sheet. |
+| **Question 2** | ![screenshot](documentation/features/question2-features.png) | The second question in the film survey showcases that the questions differ in their entries. This question asks for a number between 1-10. |
+| **Bonus Question** | ![screenshot](documentation/features/bonus-features.png) | The survey asks bonus questions to the user that are different in color to the normal questions that the user faces. These questions themselves are stored in a different sheet altogether. |
+| **Question 5** | ![screenshot](documentation/features/Question5-features.png) | This table has shifted from Q2 straight to Q5 because the features in Q3 and Q4 are similar. The difference in Q5 is that the selection of the number that you pick directly gives you a question based on your choice right after this. |
+| **Question 5 Follow Up Bonus** | ![screenshot](documentation/features/BonusQ3-features.png) | The follow-up question to Question 5 gives you a personalized question based on your choice in Q5. If the user picks option 7 in Q5 then they will receive this in 'Bonus Question Three'. |
+| **Final Menu** | ![screenshot](documentation/features/finalmenu-features.png) ![screenshot](documentation/features/bookfinal-features.png) | This final menu is brought up when the user completes the questions in the survey. The menu is personalized showing the user's name and what survey they have taken. The book survey additionally shows that they have taken the book survey. |
+| **Final Options** | ![screenshot](documentation/features/finaloptions-features.png) | The final menu contains two different options: 1. View Statistics, 2. Exit. These options allow the user to either check the results of the survey by all users that have completed it. The second option closes the survey completely. |
+| **Exit Message** | ![screenshot](documentation/features/exit-features.png) | There is an exit message that shows once the user selects the exit option. |
+| **Stats** | ![screenshot](documentation/features/film-stats.png) ![screenshot](documentation/features/book-stats.png) | The statistics function when activated by the user with their choice showcases the survey results from every single user that has taken the survey. This displays both the film survey and the book survey results that have been processed and delivered to the program with Google Sheets. |
+
 
 
 
