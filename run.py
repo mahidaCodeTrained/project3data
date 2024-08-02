@@ -1160,7 +1160,8 @@ def view_statistics():
     print(f"Cover Attraction: {bonus_book_counts['Cover Attraction']}")
 
     while True:
-        user_input = input("\nPress '1' to exit: ")
+        user_input = input("\nPress '1' to exit: (scroll up\
+ for film stats) ")
         if user_input == '1':
             end_all()
             clear()
